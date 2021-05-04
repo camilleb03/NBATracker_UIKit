@@ -13,7 +13,22 @@
 		912C0C582640DB9A00986B07 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 912C0C562640DB9A00986B07 /* Main.storyboard */; };
 		912C0C5A2640DB9E00986B07 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 912C0C592640DB9E00986B07 /* Assets.xcassets */; };
 		912C0C5D2640DB9E00986B07 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 912C0C5B2640DB9E00986B07 /* LaunchScreen.storyboard */; };
+		919B8EEF2640E4CE00FC466B /* TeamsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919B8EEE2640E4CE00FC466B /* TeamsService.swift */; };
+		919B8EF32640E4F300FC466B /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919B8EF22640E4F300FC466B /* Team.swift */; };
+		919B8F20264101FF00FC466B /* NBATrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919B8F1F264101FF00FC466B /* NBATrackerTests.swift */; };
+		919B8F2A2641026000FC466B /* teams.json in Resources */ = {isa = PBXBuildFile; fileRef = 919B8F292641026000FC466B /* teams.json */; };
+		919B8F2F2641029500FC466B /* TeamTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919B8F2E2641029500FC466B /* TeamTests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		919B8F22264101FF00FC466B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 912C0C452640DB9A00986B07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 912C0C4C2640DB9A00986B07;
+			remoteInfo = NBATracker;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		912C0C4D2640DB9A00986B07 /* NBATracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NBATracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -24,10 +39,24 @@
 		912C0C592640DB9E00986B07 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		912C0C5C2640DB9E00986B07 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		912C0C5E2640DB9E00986B07 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		919B8EEE2640E4CE00FC466B /* TeamsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsService.swift; sourceTree = "<group>"; };
+		919B8EF22640E4F300FC466B /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
+		919B8F1D264101FF00FC466B /* NBATrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NBATrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		919B8F1F264101FF00FC466B /* NBATrackerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NBATrackerTests.swift; sourceTree = "<group>"; };
+		919B8F21264101FF00FC466B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		919B8F292641026000FC466B /* teams.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = teams.json; sourceTree = "<group>"; };
+		919B8F2E2641029500FC466B /* TeamTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		912C0C4A2640DB9A00986B07 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		919B8F1A264101FF00FC466B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -41,6 +70,7 @@
 			isa = PBXGroup;
 			children = (
 				912C0C4F2640DB9A00986B07 /* NBATracker */,
+				919B8F1E264101FF00FC466B /* NBATrackerTests */,
 				912C0C4E2640DB9A00986B07 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -49,6 +79,7 @@
 			isa = PBXGroup;
 			children = (
 				912C0C4D2640DB9A00986B07 /* NBATracker.app */,
+				919B8F1D264101FF00FC466B /* NBATrackerTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -56,15 +87,84 @@
 		912C0C4F2640DB9A00986B07 /* NBATracker */ = {
 			isa = PBXGroup;
 			children = (
-				912C0C502640DB9A00986B07 /* AppDelegate.swift */,
-				912C0C522640DB9A00986B07 /* SceneDelegate.swift */,
-				912C0C542640DB9A00986B07 /* ViewController.swift */,
-				912C0C562640DB9A00986B07 /* Main.storyboard */,
-				912C0C592640DB9E00986B07 /* Assets.xcassets */,
-				912C0C5B2640DB9E00986B07 /* LaunchScreen.storyboard */,
+				919B8EED2640E04D00FC466B /* Helpers */,
+				919B8EEC2640E03700FC466B /* Models */,
+				919B8EEA2640E02600FC466B /* Views */,
+				919B8EEB2640E03000FC466B /* Controllers */,
+				919B8EE92640E00E00FC466B /* Services */,
+				919B8EF52640E78B00FC466B /* Resources */,
 				912C0C5E2640DB9E00986B07 /* Info.plist */,
 			);
 			path = NBATracker;
+			sourceTree = "<group>";
+		};
+		919B8EE92640E00E00FC466B /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				919B8EEE2640E4CE00FC466B /* TeamsService.swift */,
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
+		919B8EEA2640E02600FC466B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				912C0C5B2640DB9E00986B07 /* LaunchScreen.storyboard */,
+				912C0C562640DB9A00986B07 /* Main.storyboard */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		919B8EEB2640E03000FC466B /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				912C0C542640DB9A00986B07 /* ViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		919B8EEC2640E03700FC466B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				919B8EF22640E4F300FC466B /* Team.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		919B8EED2640E04D00FC466B /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
+		919B8EF52640E78B00FC466B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				912C0C502640DB9A00986B07 /* AppDelegate.swift */,
+				912C0C522640DB9A00986B07 /* SceneDelegate.swift */,
+				912C0C592640DB9E00986B07 /* Assets.xcassets */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		919B8F1E264101FF00FC466B /* NBATrackerTests */ = {
+			isa = PBXGroup;
+			children = (
+				919B8F2D2641027C00FC466B /* fixtures */,
+				919B8F1F264101FF00FC466B /* NBATrackerTests.swift */,
+				919B8F21264101FF00FC466B /* Info.plist */,
+				919B8F2E2641029500FC466B /* TeamTests.swift */,
+			);
+			path = NBATrackerTests;
+			sourceTree = "<group>";
+		};
+		919B8F2D2641027C00FC466B /* fixtures */ = {
+			isa = PBXGroup;
+			children = (
+				919B8F292641026000FC466B /* teams.json */,
+			);
+			path = fixtures;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -87,6 +187,24 @@
 			productReference = 912C0C4D2640DB9A00986B07 /* NBATracker.app */;
 			productType = "com.apple.product-type.application";
 		};
+		919B8F1C264101FF00FC466B /* NBATrackerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 919B8F24264101FF00FC466B /* Build configuration list for PBXNativeTarget "NBATrackerTests" */;
+			buildPhases = (
+				919B8F19264101FF00FC466B /* Sources */,
+				919B8F1A264101FF00FC466B /* Frameworks */,
+				919B8F1B264101FF00FC466B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				919B8F23264101FF00FC466B /* PBXTargetDependency */,
+			);
+			name = NBATrackerTests;
+			productName = NBATrackerTests;
+			productReference = 919B8F1D264101FF00FC466B /* NBATrackerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -98,6 +216,10 @@
 				TargetAttributes = {
 					912C0C4C2640DB9A00986B07 = {
 						CreatedOnToolsVersion = 12.4;
+					};
+					919B8F1C264101FF00FC466B = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = 912C0C4C2640DB9A00986B07;
 					};
 				};
 			};
@@ -115,6 +237,7 @@
 			projectRoot = "";
 			targets = (
 				912C0C4C2640DB9A00986B07 /* NBATracker */,
+				919B8F1C264101FF00FC466B /* NBATrackerTests */,
 			);
 		};
 /* End PBXProject section */
@@ -130,6 +253,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		919B8F1B264101FF00FC466B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				919B8F2A2641026000FC466B /* teams.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -137,13 +268,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				919B8EEF2640E4CE00FC466B /* TeamsService.swift in Sources */,
 				912C0C552640DB9A00986B07 /* ViewController.swift in Sources */,
 				912C0C512640DB9A00986B07 /* AppDelegate.swift in Sources */,
+				919B8EF32640E4F300FC466B /* Team.swift in Sources */,
 				912C0C532640DB9A00986B07 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		919B8F19264101FF00FC466B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				919B8F2F2641029500FC466B /* TeamTests.swift in Sources */,
+				919B8F20264101FF00FC466B /* NBATrackerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		919B8F23264101FF00FC466B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 912C0C4C2640DB9A00986B07 /* NBATracker */;
+			targetProxy = 919B8F22264101FF00FC466B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		912C0C562640DB9A00986B07 /* Main.storyboard */ = {
@@ -319,6 +469,46 @@
 			};
 			name = Release;
 		};
+		919B8F25264101FF00FC466B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5QGY9F3547;
+				INFOPLIST_FILE = NBATrackerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.camillebourbonnais.NBATrackerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NBATracker.app/NBATracker";
+			};
+			name = Debug;
+		};
+		919B8F26264101FF00FC466B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5QGY9F3547;
+				INFOPLIST_FILE = NBATrackerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.camillebourbonnais.NBATrackerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NBATracker.app/NBATracker";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -336,6 +526,15 @@
 			buildConfigurations = (
 				912C0C622640DB9E00986B07 /* Debug */,
 				912C0C632640DB9E00986B07 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		919B8F24264101FF00FC466B /* Build configuration list for PBXNativeTarget "NBATrackerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				919B8F25264101FF00FC466B /* Debug */,
+				919B8F26264101FF00FC466B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
