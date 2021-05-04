@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.backgroundColor = .systemBackground
         
         // Declaring VC for each tab item
-        let teamsTableVC = TeamsTableViewController()
+        let teamsTableVC = TeamsViewController()
         let liveScoresVC = LiveScoresViewController()
         
         // Embed each VC in a NavController
