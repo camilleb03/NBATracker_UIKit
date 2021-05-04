@@ -9,28 +9,45 @@ import UIKit
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
-
-
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+    
+    var window: UIWindow?
+    
+    func application( _ application: UIApplication, didFinishLaunchingWithOptions launchOptions:
+                        [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.makeKeyAndVisible()
+        window?.backgroundColor = .systemBackground
+        
+        // Declaring VC for each tab item
+        let teamsTableVC = TeamsTableViewController()
+        let liveScoresVC = LiveScoresViewController()
+        
+        // Embed each VC in a NavController
+        let teamsTableNC = makeNavigationController(rootViewController: teamsTableVC)
+        let liveScoresNC = makeNavigationController(rootViewController: liveScoresVC)
+        
+        let tabBarController = UITabBarController()
+        tabBarController.viewControllers = [teamsTableNC, liveScoresNC]
+        
+        // Specify which ViewController to launch at the start of the app
+        window?.rootViewController = tabBarController
+        
         return true
     }
-
-    // MARK: UISceneSession Lifecycle
-
-    func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
-        // Called when a new scene session is being created.
-        // Use this method to select a configuration to create the new scene with.
-        return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
+    
+    func makeNavigationController(rootViewController: UIViewController) -> UINavigationController {
+        let navigationController = UINavigationController(rootViewController: rootViewController)
+        
+        // Setting up navigation bar title
+        navigationController.navigationBar.prefersLargeTitles = true
+        let attrs = [
+            NSAttributedString.Key.foregroundColor: UIColor.label,
+            NSAttributedString.Key.font: UIFont.preferredFont(forTextStyle: .title1).bold()
+        ]
+        navigationController.navigationBar.largeTitleTextAttributes = attrs
+        
+        return navigationController
     }
-
-    func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
-        // Called when the user discards a scene session.
-        // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
-        // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
-    }
-
-
 }
 

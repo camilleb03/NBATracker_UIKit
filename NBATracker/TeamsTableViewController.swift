@@ -18,9 +18,14 @@ class TeamsTableViewController: UITableViewController {
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        // TabBarItem config
+        let configuration = UIImage.SymbolConfiguration(scale: .large)
+        let image = UIImage(systemName: "magnifyingglass.circle.fill", withConfiguration: configuration)
+        tabBarItem = UITabBarItem(title: "Search", image: image, tag: 0)
+        
+        // Register cells to use in TableView
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "reuseIdentifier")
         
         // Conform itself as the data source and the delegate
         tableView.dataSource = self
