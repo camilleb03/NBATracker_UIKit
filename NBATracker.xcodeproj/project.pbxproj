@@ -18,6 +18,8 @@
 		919B8F20264101FF00FC466B /* NBATrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919B8F1F264101FF00FC466B /* NBATrackerTests.swift */; };
 		919B8F2A2641026000FC466B /* teams.json in Resources */ = {isa = PBXBuildFile; fileRef = 919B8F292641026000FC466B /* teams.json */; };
 		919B8F2F2641029500FC466B /* TeamTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919B8F2E2641029500FC466B /* TeamTests.swift */; };
+		919B8F3526410AEC00FC466B /* TeamsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919B8F3426410AEC00FC466B /* TeamsTableViewController.swift */; };
+		919B8F4426410FC800FC466B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919B8F4326410FC800FC466B /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +48,8 @@
 		919B8F21264101FF00FC466B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		919B8F292641026000FC466B /* teams.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = teams.json; sourceTree = "<group>"; };
 		919B8F2E2641029500FC466B /* TeamTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamTests.swift; sourceTree = "<group>"; };
+		919B8F3426410AEC00FC466B /* TeamsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsTableViewController.swift; sourceTree = "<group>"; };
+		919B8F4326410FC800FC466B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,12 +91,15 @@
 		912C0C4F2640DB9A00986B07 /* NBATracker */ = {
 			isa = PBXGroup;
 			children = (
+				912C0C522640DB9A00986B07 /* SceneDelegate.swift */,
+				912C0C502640DB9A00986B07 /* AppDelegate.swift */,
 				919B8EED2640E04D00FC466B /* Helpers */,
 				919B8EEC2640E03700FC466B /* Models */,
 				919B8EEA2640E02600FC466B /* Views */,
 				919B8EEB2640E03000FC466B /* Controllers */,
 				919B8EE92640E00E00FC466B /* Services */,
 				919B8EF52640E78B00FC466B /* Resources */,
+				912C0C592640DB9E00986B07 /* Assets.xcassets */,
 				912C0C5E2640DB9E00986B07 /* Info.plist */,
 			);
 			path = NBATracker;
@@ -119,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				912C0C542640DB9A00986B07 /* ViewController.swift */,
+				919B8F3426410AEC00FC466B /* TeamsTableViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -141,9 +149,7 @@
 		919B8EF52640E78B00FC466B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				912C0C502640DB9A00986B07 /* AppDelegate.swift */,
-				912C0C522640DB9A00986B07 /* SceneDelegate.swift */,
-				912C0C592640DB9E00986B07 /* Assets.xcassets */,
+				919B8F4326410FC800FC466B /* Constants.swift */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -272,6 +278,8 @@
 				912C0C552640DB9A00986B07 /* ViewController.swift in Sources */,
 				912C0C512640DB9A00986B07 /* AppDelegate.swift in Sources */,
 				919B8EF32640E4F300FC466B /* Team.swift in Sources */,
+				919B8F4426410FC800FC466B /* Constants.swift in Sources */,
+				919B8F3526410AEC00FC466B /* TeamsTableViewController.swift in Sources */,
 				912C0C532640DB9A00986B07 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

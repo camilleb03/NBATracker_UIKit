@@ -57,7 +57,7 @@ class TeamTests: XCTestCase {
         }
         """
         let jsonData = json.data(using: .utf8)!
-        let teamsData = try! JSONDecoder().decode(TeamsWrapper.self, from: jsonData)
+        let teamsData = try! JSONDecoder().decode(TeamsRawResponse.self, from: jsonData)
         
         XCTAssertEqual("1610612737", teamsData.teams[0].id)
         XCTAssertEqual("Hawks", teamsData.teams[0].name)
@@ -105,7 +105,7 @@ class TeamTests: XCTestCase {
         }
         """
         let jsonData = json.data(using: .utf8)!
-        let teamsData = try! JSONDecoder().decode(TeamsWrapper.self, from: jsonData)
+        let teamsData = try! JSONDecoder().decode(TeamsRawResponse.self, from: jsonData)
         
         XCTAssertEqual("Atlanta Hawks", teamsData.teams[0].fullName)
     }
@@ -123,7 +123,7 @@ class TeamTests: XCTestCase {
         }
         
         let jsonData = json.data(using: .utf8)!
-        let teamsData = try! JSONDecoder().decode(TeamsWrapper.self, from: jsonData)
+        let teamsData = try! JSONDecoder().decode(TeamsRawResponse.self, from: jsonData)
         
         XCTAssertEqual(30, teamsData.teams.count, "Number of NBA teams is not equal to 30.")
         

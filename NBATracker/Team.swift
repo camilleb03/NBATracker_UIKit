@@ -7,12 +7,12 @@
 
 import Foundation
 
-struct TeamsWrapper {
+struct TeamsRawResponse {
     
     let teams: [Team]
 }
 
-extension TeamsWrapper: Decodable {
+extension TeamsRawResponse: Decodable {
     
     private enum RootKeys: String, CodingKey {
         
