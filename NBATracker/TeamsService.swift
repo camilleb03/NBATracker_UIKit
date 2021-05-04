@@ -19,16 +19,15 @@ class TeamsService {
     
     func fetchTeams() {
         // Create a URL object (which points to the endpoint of the NBA API)
-        let url = URL(string: Constants.API_URL+"/2020/teams.json")
-        
-        // May be nil
-        guard url != nil else { return }
+        guard let url = URL(string: Constants.API_URL+"/2020/teams.json") else {
+            return
+        }
         
         // Get a URLSession object -> does the networking stuff :')
         let session = URLSession.shared
         
         // Get a data task (represents a single call to the API) from the URLSession
-        let dataTask = session.dataTask(with: url!) { (data, response, error) in
+        let dataTask = session.dataTask(with: url) { (data, response, error) in
             // Check if there was any error
             if error != nil || data == nil {
                  return

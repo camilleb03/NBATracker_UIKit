@@ -21,15 +21,6 @@ extension TeamsRawResponse: Decodable {
         enum LeagueKeys: String, CodingKey {
             
             case standard = "standard"
-            
-            enum StandardKeys: String, CodingKey {
-                
-                case teamId = "teamId"
-                case teamName = "nickname"
-                case cityName = "city"
-                case tricode = "tricode"
-                case urlName = "urlName"
-            }
         }
     }
     
