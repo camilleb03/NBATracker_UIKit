@@ -32,8 +32,7 @@ class NBATodayTests: XCTestCase {
         
         let jsonData = json.data(using: .utf8)!
         let todayData = try! JSONDecoder().decode(NBAToday.self, from: jsonData)
-        print(todayData.currentDateString)
-        print(todayData.currentDate)
+        XCTAssertEqual("202010505", todayData.currentDateString, "DateUrlCode is not in the right format")
         XCTAssertEqual(2020, todayData.seasonScheduleYear, "The season schedule year is not 2020.")
         
     }

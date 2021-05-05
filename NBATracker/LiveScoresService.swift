@@ -9,12 +9,10 @@ import Foundation
 
 struct LiveScoresService {
     
-    func fetch(completion: @escaping (Result<[LiveScoreBoard], Error>) -> Void) {
+    func fetch(for date: String, completion: @escaping (Result<[LiveScoreBoard], Error>) -> Void) {
         
         // Create a URL object (which points to the endpoint of the NBA API)
-        guard let url = URL(string: Constants.API_URL+"/20210504/scoreboard.json") else {
-            return
-        }
+        let url = Endpoint.scoreboard(for: date).url
         URLSession.shared.dataTask(with: url) { data, response, error in
             
             if let error = error {

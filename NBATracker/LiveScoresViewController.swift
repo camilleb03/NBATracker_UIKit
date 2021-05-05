@@ -11,6 +11,8 @@ class LiveScoresViewController: BaseViewController {
     
     var tableView = UITableView()
     
+    var dateString: String?
+    
     let liveScoresService = LiveScoresService()
     var liveScoreBoards = [LiveScoreBoard]()
     
@@ -33,7 +35,7 @@ class LiveScoresViewController: BaseViewController {
     }
     
     private func fetchLiveScoreBoards() {
-        liveScoresService.fetch { [weak self] result in
+        liveScoresService.fetch(for: (dateString ?? NBATodayService.nbaToday?.currentDateUrlCode) ?? getCurrentDateString(with: "yyyyMMdd")) { [weak self] result in
             guard let self = self else { return }
             switch result {
             case .success(let liveScoreBoards):

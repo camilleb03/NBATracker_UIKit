@@ -17,12 +17,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Call to NBA today.json to retrieve currentDate
         let semaphore = DispatchSemaphore(value: 0)
+        var didFetch = false
         let url = Endpoint.today.url
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
             do {
-                let decoder = JSONDecoder()
-                let response = try decoder.decode(NBAToday.self, from: data!)
-                NBATodayService.nbaToday = NBAToday.init(currentDateString: response.currentDateString, seasonScheduleYear: response.seasonScheduleYear)
+                let response = try JSONDecoder().decode(NBAToday.self, from: data!)
+                didFetch = true
+                NBATodayService.nbaToday = NBAToday.init(currentDateUrlCode: response.currentDateUrlCode, seasonScheduleYear: response.seasonScheduleYear)
             } catch {
                 print(error)
             }
@@ -30,6 +31,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         task.resume()
         let _ = semaphore.wait(timeout: DispatchTime.distantFuture)
+        
+        if didFetch == false {
+            return false
+        }
         
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()

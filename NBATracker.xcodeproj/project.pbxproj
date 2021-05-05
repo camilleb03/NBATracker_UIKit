@@ -14,6 +14,7 @@
 		910A927726430E0E00668D6B /* NBATodayService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910A927626430E0E00668D6B /* NBATodayService.swift */; };
 		910A927B264315A500668D6B /* today.json in Resources */ = {isa = PBXBuildFile; fileRef = 910A927A264315A500668D6B /* today.json */; };
 		910A927F264315CC00668D6B /* NBATodayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910A927E264315CC00668D6B /* NBATodayTests.swift */; };
+		910A92832643291D00668D6B /* CurrentDateFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910A92822643291D00668D6B /* CurrentDateFormat.swift */; };
 		912C0C512640DB9A00986B07 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912C0C502640DB9A00986B07 /* AppDelegate.swift */; };
 		912C0C552640DB9A00986B07 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912C0C542640DB9A00986B07 /* BaseViewController.swift */; };
 		912C0C5A2640DB9E00986B07 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 912C0C592640DB9E00986B07 /* Assets.xcassets */; };
@@ -52,6 +53,7 @@
 		910A927626430E0E00668D6B /* NBATodayService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NBATodayService.swift; sourceTree = "<group>"; };
 		910A927A264315A500668D6B /* today.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = today.json; sourceTree = "<group>"; };
 		910A927E264315CC00668D6B /* NBATodayTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NBATodayTests.swift; sourceTree = "<group>"; };
+		910A92822643291D00668D6B /* CurrentDateFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentDateFormat.swift; sourceTree = "<group>"; };
 		912C0C4D2640DB9A00986B07 /* NBATracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NBATracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		912C0C502640DB9A00986B07 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		912C0C542640DB9A00986B07 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -131,9 +133,9 @@
 		919B8EE92640E00E00FC466B /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				919B8EEE2640E4CE00FC466B /* TeamsService.swift */,
 				919B70E62641DA2600E8FDF9 /* LiveScoresService.swift */,
 				910A927626430E0E00668D6B /* NBATodayService.swift */,
+				919B8EEE2640E4CE00FC466B /* TeamsService.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -160,9 +162,9 @@
 		919B8EEC2640E03700FC466B /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				919B8EF22640E4F300FC466B /* Team.swift */,
 				919B70E22641CA0600E8FDF9 /* LiveScore.swift */,
 				910A9266264300D600668D6B /* NBAToday.swift */,
+				919B8EF22640E4F300FC466B /* Team.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -171,9 +173,10 @@
 			isa = PBXGroup;
 			children = (
 				919B71022641F1F600E8FDF9 /* APIError.swift */,
-				9103CA922641B04E00C05BEF /* Factories.swift */,
+				910A92822643291D00668D6B /* CurrentDateFormat.swift */,
 				919B710826421D4100E8FDF9 /* Extensions.swift */,
 				910A92622642FC5700668D6B /* Endpoint.swift */,
+				9103CA922641B04E00C05BEF /* Factories.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -192,9 +195,9 @@
 				919B8F2D2641027C00FC466B /* fixtures */,
 				919B8F1F264101FF00FC466B /* NBATrackerTests.swift */,
 				919B8F21264101FF00FC466B /* Info.plist */,
-				919B8F2E2641029500FC466B /* TeamTests.swift */,
 				919B70F42641E8B500E8FDF9 /* LiveScoreTests.swift */,
 				910A927E264315CC00668D6B /* NBATodayTests.swift */,
+				919B8F2E2641029500FC466B /* TeamTests.swift */,
 			);
 			path = NBATrackerTests;
 			sourceTree = "<group>";
@@ -338,6 +341,7 @@
 				910A927726430E0E00668D6B /* NBATodayService.swift in Sources */,
 				9103CA932641B04E00C05BEF /* Factories.swift in Sources */,
 				912C0C512640DB9A00986B07 /* AppDelegate.swift in Sources */,
+				910A92832643291D00668D6B /* CurrentDateFormat.swift in Sources */,
 				919B8EF32640E4F300FC466B /* Team.swift in Sources */,
 				919B71032641F1F600E8FDF9 /* APIError.swift in Sources */,
 				9103CA8F2641ACB800C05BEF /* LiveScoresViewController.swift in Sources */,

@@ -9,14 +9,15 @@ import Foundation
 
 struct NBAToday {
     
-    let currentDateString: String
+    let currentDateUrlCode: String
     let seasonScheduleYear: Int
     
-    var currentDateDisplay: String {
+    var currentDateString: String {
         let dateFormatter: DateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyyMMdd"
+        let date = dateFormatter.date(from: currentDateUrlCode)!
         dateFormatter.dateStyle = .medium
-        return dateFormatter.string(from: dateFormatter.date(from: currentDateString)!)
+        return dateFormatter.string(from: date)
     }
 }
 
@@ -29,7 +30,7 @@ extension NBAToday: Decodable {
         
         enum LinksKeys: String, CodingKey {
             
-            case currentDateString = "currentDate"
+            case currentDateUrlCode = "currentDate"
         }
     }
 
@@ -41,6 +42,6 @@ extension NBAToday: Decodable {
 
         // Links level
         let leagueContainer = try container.nestedContainer(keyedBy: RootKeys.LinksKeys.self, forKey: .links)
-        self.currentDateString = try leagueContainer.decode(String.self, forKey: .currentDateString)
+        self.currentDateUrlCode = try leagueContainer.decode(String.self, forKey: .currentDateUrlCode)
     }
 }
