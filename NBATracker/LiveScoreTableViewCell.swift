@@ -68,6 +68,7 @@ extension LiveScoreTableViewCell {
         rootStackView.spacing = 10
         rootStackView.axis = .horizontal
         rootStackView.alignment = .center
+        rootStackView.distribution = .equalSpacing
         
         // Home Team
         homeTeamStackView.translatesAutoresizingMaskIntoConstraints = false

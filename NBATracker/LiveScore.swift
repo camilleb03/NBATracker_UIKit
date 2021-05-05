@@ -43,7 +43,7 @@ struct LiveScoreBoard {
     let clock: String
     let visitorTeam: SBTeam
     let homeTeam: SBTeam
-    
+    //TODO: formatter as an attribute ?
     var localStartTimeString: String {
         let formatter = DateFormatter()
         var localTimeZoneAbbreviation: String { return TimeZone.current.abbreviation() ?? "UTC" }

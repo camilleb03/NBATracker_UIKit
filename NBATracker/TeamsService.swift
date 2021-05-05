@@ -19,9 +19,7 @@ class TeamsService {
     
     func fetchTeams() {
         // Create a URL object (which points to the endpoint of the NBA API)
-        guard let url = URL(string: Constants.API_URL+"/2020/teams.json") else {
-            return
-        }
+        let url = Endpoint.teams(for: "2020").url
         
         // Get a URLSession object -> does the networking stuff :')
         let session = URLSession.shared

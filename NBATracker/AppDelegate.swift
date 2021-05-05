@@ -15,6 +15,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application( _ application: UIApplication, didFinishLaunchingWithOptions launchOptions:
                         [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
+        // Call to NBA today.json to retrieve currentDate
+        let semaphore = DispatchSemaphore(value: 0)
+        let url = Endpoint.today.url
+        let task = URLSession.shared.dataTask(with: url) { data, response, error in
+            do {
+                let decoder = JSONDecoder()
+                let response = try decoder.decode(NBAToday.self, from: data!)
+                NBATodayService.nbaToday = NBAToday.init(currentDateString: response.currentDateString, seasonScheduleYear: response.seasonScheduleYear)
+            } catch {
+                print(error)
+            }
+            semaphore.signal();
+        }
+        task.resume()
+        let _ = semaphore.wait(timeout: DispatchTime.distantFuture)
+        
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
         window?.backgroundColor = .systemBackground
@@ -34,20 +50,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = tabBarController
         
         return true
-    }
-    
-    func applicationWillEnterForeground(_ application: UIApplication) {
-        // Call to NBA today.json to retrieve currentDate
-//        let semaphore = DispatchSemaphore(value: 0)
-//        let request = NSMutableURLRequest(URL:url)
-//        let task = NSURLSession.sharedSession().dataTaskWithRequest(request,
-//                        completionHandler: {
-//               taskData, _, error -> () in
-//
-//               dispatch_semaphore_signal(semaphore);
-//         })
-//         task.resume()
-//         dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER)
     }
     
     func makeNavigationController(rootViewController: UIViewController) -> UINavigationController {
