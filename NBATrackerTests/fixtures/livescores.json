@@ -1,16 +1,16 @@
 {
     "_internal": {
-        "pubDateTime": "2021-05-04 07:19:14.491 EDT",
-        "igorPath": "S3,1620127142267,1620127151676|router,1620127151676,1620127151707|domUpdater,1620127152350,1620127153710|feedProducer,1620127153799,1620127157651",
-        "routeName": "ap_preview_article",
-        "routeValue": "S3::ap_preview_20210504_0022000987.xml",
+        "pubDateTime": "2021-05-04 20:11:44.454 EDT",
+        "igorPath": "S3,1620173499400,1620173502193|nbads,1620173502193,1620173502355|poller0,1620173503615,1620173503651|router,1620173503651,1620173503678|domUpdater,1620173503679,1620173504374|feedProducer,1620173504375,1620173506175",
+        "routeName": "boxscore",
+        "routeValue": "S3::2020_20210504/linescores/0022000988.xml",
         "xslt": "NBA/xsl/date/scoreboard/marty_daily_scoreboard.xsl",
         "xsltForceRecompile": "true",
         "xsltInCache": "false",
-        "xsltCompileTimeMillis": "593",
-        "xsltTransformTimeMillis": "1119",
-        "consolidatedDomKey": "prod__transform__marty_daily_scoreboard__908365382952",
-        "endToEndTimeMillis": "15384"
+        "xsltCompileTimeMillis": "60",
+        "xsltTransformTimeMillis": "34",
+        "consolidatedDomKey": "prod__transform__marty_daily_scoreboard__11165068617867",
+        "endToEndTimeMillis": "6775"
     },
     "numGames": 7,
     "games": [
@@ -19,9 +19,15 @@
             "seasonYear": "2020",
             "leagueName": "standard",
             "gameId": "0022000983",
-            "arena": {},
-            "isGameActivated": false,
-            "statusNum": 1,
+            "arena": {
+                "name": "Rocket Mortgage FieldHouse",
+                "isDomestic": true,
+                "city": "Cleveland",
+                "stateAbbr": "OH",
+                "country": "USA"
+            },
+            "isGameActivated": true,
+            "statusNum": 2,
             "extendedStatusNum": 0,
             "startTimeEastern": "7:00 PM ET",
             "startTimeUTC": "2021-05-04T23:00:00.000Z",
@@ -38,7 +44,7 @@
             "nugget": {
                 "text": ""
             },
-            "attendance": "",
+            "attendance": "0",
             "tickets": {
                 "mobileApp": "https://a.data.nba.com/tickets/single/2020/0022000983/APP_TIX",
                 "desktopWeb": "https://a.data.nba.com/tickets/single/2020/0022000983/TEAM_SCH",
@@ -50,15 +56,15 @@
             "isStartTimeTBD": false,
             "isNeutralVenue": false,
             "gameDuration": {
-                "hours": "",
-                "minutes": ""
+                "hours": "0",
+                "minutes": "52"
             },
             "period": {
-                "current": 0,
+                "current": 2,
                 "type": 0,
                 "maxRegular": 4,
-                "isHalftime": false,
-                "isEndOfPeriod": false
+                "isHalftime": true,
+                "isEndOfPeriod": true
             },
             "vTeam": {
                 "teamId": "1610612756",
@@ -67,8 +73,21 @@
                 "loss": "18",
                 "seriesWin": "1",
                 "seriesLoss": "0",
-                "score": "",
-                "linescore": []
+                "score": "59",
+                "linescore": [
+                    {
+                        "score": "30"
+                    },
+                    {
+                        "score": "29"
+                    },
+                    {
+                        "score": "0"
+                    },
+                    {
+                        "score": "0"
+                    }
+                ]
             },
             "hTeam": {
                 "teamId": "1610612739",
@@ -77,10 +96,187 @@
                 "loss": "43",
                 "seriesWin": "0",
                 "seriesLoss": "1",
-                "score": "",
-                "linescore": []
+                "score": "53",
+                "linescore": [
+                    {
+                        "score": "24"
+                    },
+                    {
+                        "score": "29"
+                    },
+                    {
+                        "score": "0"
+                    },
+                    {
+                        "score": "0"
+                    }
+                ]
             },
-            "watch": {}
+            "watch": {
+                "broadcast": {
+                    "broadcasters": {
+                        "national": [],
+                        "canadian": [
+                            {
+                                "shortName": "NBAC",
+                                "longName": "NBA TV Canada"
+                            }
+                        ],
+                        "vTeam": [
+                            {
+                                "shortName": "BSAZ",
+                                "longName": "Bally Sports Arizona"
+                            }
+                        ],
+                        "hTeam": [
+                            {
+                                "shortName": "BSOH",
+                                "longName": "Bally Sports Ohio"
+                            }
+                        ],
+                        "spanish_hTeam": [],
+                        "spanish_vTeam": [],
+                        "spanish_national": []
+                    },
+                    "video": {
+                        "regionalBlackoutCodes": "torr_cler_phxr",
+                        "canPurchase": true,
+                        "isLeaguePass": true,
+                        "isNationalBlackout": false,
+                        "isTNTOT": false,
+                        "isVR": false,
+                        "tntotIsOnAir": false,
+                        "isNextVR": false,
+                        "isNBAOnTNTVR": false,
+                        "isMagicLeap": false,
+                        "isOculusVenues": false,
+                        "streams": [
+                            {
+                                "streamType": "vTeam",
+                                "isOnAir": false,
+                                "doesArchiveExist": false,
+                                "isArchiveAvailToWatch": false,
+                                "streamId": "",
+                                "duration": 0
+                            },
+                            {
+                                "streamType": "hTeam",
+                                "isOnAir": false,
+                                "doesArchiveExist": false,
+                                "isArchiveAvailToWatch": false,
+                                "streamId": "",
+                                "duration": 0
+                            },
+                            {
+                                "streamType": "espanol_vTeam",
+                                "isOnAir": false,
+                                "doesArchiveExist": false,
+                                "isArchiveAvailToWatch": false,
+                                "streamId": "",
+                                "duration": 0
+                            },
+                            {
+                                "streamType": "espanol_hTeam",
+                                "isOnAir": false,
+                                "doesArchiveExist": false,
+                                "isArchiveAvailToWatch": false,
+                                "streamId": "",
+                                "duration": 0
+                            },
+                            {
+                                "streamType": "espanol_natl",
+                                "isOnAir": false,
+                                "doesArchiveExist": false,
+                                "isArchiveAvailToWatch": false,
+                                "streamId": "",
+                                "duration": 0
+                            },
+                            {
+                                "streamType": "mobile",
+                                "isOnAir": false,
+                                "doesArchiveExist": false,
+                                "isArchiveAvailToWatch": false,
+                                "streamId": "",
+                                "duration": 0
+                            },
+                            {
+                                "streamType": "condensed",
+                                "isOnAir": false,
+                                "doesArchiveExist": false,
+                                "isArchiveAvailToWatch": false,
+                                "streamId": "",
+                                "duration": 0
+                            },
+                            {
+                                "streamType": "alt",
+                                "isOnAir": false,
+                                "doesArchiveExist": false,
+                                "isArchiveAvailToWatch": false,
+                                "streamId": "",
+                                "duration": 0
+                            }
+                        ],
+                        "deepLink": []
+                    },
+                    "audio": {
+                        "national": {
+                            "streams": [
+                                {
+                                    "language": "English",
+                                    "isOnAir": false,
+                                    "streamId": ""
+                                },
+                                {
+                                    "language": "Spanish",
+                                    "isOnAir": false,
+                                    "streamId": ""
+                                }
+                            ],
+                            "broadcasters": []
+                        },
+                        "vTeam": {
+                            "streams": [
+                                {
+                                    "language": "English",
+                                    "isOnAir": false,
+                                    "streamId": ""
+                                },
+                                {
+                                    "language": "Spanish",
+                                    "isOnAir": false,
+                                    "streamId": ""
+                                }
+                            ],
+                            "broadcasters": [
+                                {
+                                    "shortName": "KMVP 98.7 / S: KSUN",
+                                    "longName": "KMVP 98.7 / S: KSUN"
+                                }
+                            ]
+                        },
+                        "hTeam": {
+                            "streams": [
+                                {
+                                    "language": "English",
+                                    "isOnAir": false,
+                                    "streamId": ""
+                                },
+                                {
+                                    "language": "Spanish",
+                                    "isOnAir": false,
+                                    "streamId": ""
+                                }
+                            ],
+                            "broadcasters": [
+                                {
+                                    "shortName": "WTAM/WNZN",
+                                    "longName": "WTAM/WNZN"
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
         },
         {
             "seasonStageId": 2,
@@ -94,8 +290,8 @@
                 "stateAbbr": "MI",
                 "country": "USA"
             },
-            "isGameActivated": false,
-            "statusNum": 1,
+            "isGameActivated": true,
+            "statusNum": 2,
             "extendedStatusNum": 0,
             "startTimeEastern": "7:00 PM ET",
             "startTimeUTC": "2021-05-04T23:00:00.000Z",
@@ -105,14 +301,14 @@
             "visitorStartDate": "20210504",
             "visitorStartTime": "1900",
             "gameUrlCode": "20210504/CHADET",
-            "clock": "",
+            "clock": "10.0",
             "isBuzzerBeater": false,
             "isPreviewArticleAvail": true,
             "isRecapArticleAvail": false,
             "nugget": {
                 "text": ""
             },
-            "attendance": "",
+            "attendance": "0",
             "tickets": {
                 "mobileApp": "https://a.data.nba.com/tickets/single/2020/0022000984/APP_TIX",
                 "desktopWeb": "https://a.data.nba.com/tickets/single/2020/0022000984/TEAM_SCH",
@@ -124,11 +320,11 @@
             "isStartTimeTBD": false,
             "isNeutralVenue": false,
             "gameDuration": {
-                "hours": "",
-                "minutes": ""
+                "hours": "1",
+                "minutes": "01"
             },
             "period": {
-                "current": 0,
+                "current": 2,
                 "type": 0,
                 "maxRegular": 4,
                 "isHalftime": false,
@@ -141,8 +337,21 @@
                 "loss": "33",
                 "seriesWin": "2",
                 "seriesLoss": "0",
-                "score": "",
-                "linescore": []
+                "score": "53",
+                "linescore": [
+                    {
+                        "score": "30"
+                    },
+                    {
+                        "score": "23"
+                    },
+                    {
+                        "score": "0"
+                    },
+                    {
+                        "score": "0"
+                    }
+                ]
             },
             "hTeam": {
                 "teamId": "1610612765",
@@ -151,8 +360,21 @@
                 "loss": "46",
                 "seriesWin": "0",
                 "seriesLoss": "2",
-                "score": "",
-                "linescore": []
+                "score": "46",
+                "linescore": [
+                    {
+                        "score": "28"
+                    },
+                    {
+                        "score": "18"
+                    },
+                    {
+                        "score": "0"
+                    },
+                    {
+                        "score": "0"
+                    }
+                ]
             },
             "watch": {
                 "broadcast": {
@@ -327,8 +549,8 @@
                 "stateAbbr": "WI",
                 "country": "USA"
             },
-            "isGameActivated": false,
-            "statusNum": 1,
+            "isGameActivated": true,
+            "statusNum": 2,
             "extendedStatusNum": 0,
             "startTimeEastern": "7:30 PM ET",
             "startTimeUTC": "2021-05-04T23:30:00.000Z",
@@ -345,7 +567,7 @@
             "nugget": {
                 "text": ""
             },
-            "attendance": "",
+            "attendance": "0",
             "tickets": {
                 "mobileApp": "https://a.data.nba.com/tickets/single/2020/0022000985/APP_TIX",
                 "desktopWeb": "https://a.data.nba.com/tickets/single/2020/0022000985/TEAM_SCH",
@@ -357,15 +579,15 @@
             "isStartTimeTBD": false,
             "isNeutralVenue": false,
             "gameDuration": {
-                "hours": "",
-                "minutes": ""
+                "hours": "0",
+                "minutes": "26"
             },
             "period": {
-                "current": 0,
+                "current": 1,
                 "type": 0,
                 "maxRegular": 4,
                 "isHalftime": false,
-                "isEndOfPeriod": false
+                "isEndOfPeriod": true
             },
             "vTeam": {
                 "teamId": "1610612751",
@@ -374,8 +596,21 @@
                 "loss": "22",
                 "seriesWin": "1",
                 "seriesLoss": "1",
-                "score": "",
-                "linescore": []
+                "score": "33",
+                "linescore": [
+                    {
+                        "score": "33"
+                    },
+                    {
+                        "score": "0"
+                    },
+                    {
+                        "score": "0"
+                    },
+                    {
+                        "score": "0"
+                    }
+                ]
             },
             "hTeam": {
                 "teamId": "1610612749",
@@ -384,8 +619,21 @@
                 "loss": "24",
                 "seriesWin": "1",
                 "seriesLoss": "1",
-                "score": "",
-                "linescore": []
+                "score": "34",
+                "linescore": [
+                    {
+                        "score": "34"
+                    },
+                    {
+                        "score": "0"
+                    },
+                    {
+                        "score": "0"
+                    },
+                    {
+                        "score": "0"
+                    }
+                ]
             },
             "watch": {
                 "broadcast": {
@@ -579,8 +827,8 @@
                 "stateAbbr": "FL",
                 "country": "USA"
             },
-            "isGameActivated": false,
-            "statusNum": 1,
+            "isGameActivated": true,
+            "statusNum": 2,
             "extendedStatusNum": 0,
             "startTimeEastern": "8:00 PM ET",
             "startTimeUTC": "2021-05-05T00:00:00.000Z",
@@ -590,14 +838,14 @@
             "visitorStartDate": "20210504",
             "visitorStartTime": "1900",
             "gameUrlCode": "20210504/DALMIA",
-            "clock": "",
+            "clock": "11:44",
             "isBuzzerBeater": false,
             "isPreviewArticleAvail": true,
             "isRecapArticleAvail": false,
             "nugget": {
                 "text": ""
             },
-            "attendance": "",
+            "attendance": "0",
             "tickets": {
                 "mobileApp": "https://a.data.nba.com/tickets/single/2020/0022000986/APP_TIX",
                 "desktopWeb": "https://a.data.nba.com/tickets/single/2020/0022000986/TEAM_SCH",
@@ -613,7 +861,7 @@
                 "minutes": ""
             },
             "period": {
-                "current": 0,
+                "current": 1,
                 "type": 0,
                 "maxRegular": 4,
                 "isHalftime": false,
@@ -626,8 +874,21 @@
                 "loss": "28",
                 "seriesWin": "1",
                 "seriesLoss": "0",
-                "score": "",
-                "linescore": []
+                "score": "0",
+                "linescore": [
+                    {
+                        "score": "0"
+                    },
+                    {
+                        "score": "0"
+                    },
+                    {
+                        "score": "0"
+                    },
+                    {
+                        "score": "0"
+                    }
+                ]
             },
             "hTeam": {
                 "teamId": "1610612748",
@@ -636,8 +897,21 @@
                 "loss": "30",
                 "seriesWin": "0",
                 "seriesLoss": "1",
-                "score": "",
-                "linescore": []
+                "score": "3",
+                "linescore": [
+                    {
+                        "score": "3"
+                    },
+                    {
+                        "score": "0"
+                    },
+                    {
+                        "score": "0"
+                    },
+                    {
+                        "score": "0"
+                    }
+                ]
             },
             "watch": {
                 "broadcast": {
@@ -812,8 +1086,8 @@
                 "stateAbbr": "LA",
                 "country": "USA"
             },
-            "isGameActivated": false,
-            "statusNum": 1,
+            "isGameActivated": true,
+            "statusNum": 2,
             "extendedStatusNum": 0,
             "startTimeEastern": "8:00 PM ET",
             "startTimeUTC": "2021-05-05T00:00:00.000Z",
@@ -823,14 +1097,14 @@
             "visitorStartDate": "20210504",
             "visitorStartTime": "1700",
             "gameUrlCode": "20210504/GSWNOP",
-            "clock": "",
+            "clock": "11:29",
             "isBuzzerBeater": false,
             "isPreviewArticleAvail": true,
             "isRecapArticleAvail": false,
             "nugget": {
                 "text": ""
             },
-            "attendance": "",
+            "attendance": "0",
             "tickets": {
                 "mobileApp": "https://a.data.nba.com/tickets/single/2020/0022000987/APP_TIX",
                 "desktopWeb": "https://a.data.nba.com/tickets/single/2020/0022000987/TEAM_SCH",
@@ -842,11 +1116,11 @@
             "isStartTimeTBD": false,
             "isNeutralVenue": false,
             "gameDuration": {
-                "hours": "",
-                "minutes": ""
+                "hours": "0",
+                "minutes": "01"
             },
             "period": {
-                "current": 0,
+                "current": 1,
                 "type": 0,
                 "maxRegular": 4,
                 "isHalftime": false,
@@ -859,8 +1133,21 @@
                 "loss": "32",
                 "seriesWin": "1",
                 "seriesLoss": "0",
-                "score": "",
-                "linescore": []
+                "score": "0",
+                "linescore": [
+                    {
+                        "score": "0"
+                    },
+                    {
+                        "score": "0"
+                    },
+                    {
+                        "score": "0"
+                    },
+                    {
+                        "score": "0"
+                    }
+                ]
             },
             "hTeam": {
                 "teamId": "1610612740",
@@ -869,8 +1156,21 @@
                 "loss": "36",
                 "seriesWin": "0",
                 "seriesLoss": "1",
-                "score": "",
-                "linescore": []
+                "score": "1",
+                "linescore": [
+                    {
+                        "score": "1"
+                    },
+                    {
+                        "score": "0"
+                    },
+                    {
+                        "score": "0"
+                    },
+                    {
+                        "score": "0"
+                    }
+                ]
             },
             "watch": {
                 "broadcast": {
@@ -1045,8 +1345,8 @@
                 "stateAbbr": "OK",
                 "country": "USA"
             },
-            "isGameActivated": false,
-            "statusNum": 1,
+            "isGameActivated": true,
+            "statusNum": 2,
             "extendedStatusNum": 0,
             "startTimeEastern": "8:00 PM ET",
             "startTimeUTC": "2021-05-05T00:00:00.000Z",
@@ -1056,14 +1356,14 @@
             "visitorStartDate": "20210504",
             "visitorStartTime": "1700",
             "gameUrlCode": "20210504/SACOKC",
-            "clock": "",
+            "clock": "10:53",
             "isBuzzerBeater": false,
             "isPreviewArticleAvail": true,
             "isRecapArticleAvail": false,
             "nugget": {
                 "text": ""
             },
-            "attendance": "",
+            "attendance": "0",
             "tickets": {
                 "mobileApp": "https://a.data.nba.com/tickets/single/2020/0022000988/APP_TIX",
                 "desktopWeb": "https://a.data.nba.com/tickets/single/2020/0022000988/TEAM_SCH",
@@ -1075,11 +1375,11 @@
             "isStartTimeTBD": false,
             "isNeutralVenue": false,
             "gameDuration": {
-                "hours": "",
-                "minutes": ""
+                "hours": "0",
+                "minutes": "02"
             },
             "period": {
-                "current": 0,
+                "current": 1,
                 "type": 0,
                 "maxRegular": 4,
                 "isHalftime": false,
@@ -1092,8 +1392,21 @@
                 "loss": "37",
                 "seriesWin": "",
                 "seriesLoss": "",
-                "score": "",
-                "linescore": []
+                "score": "2",
+                "linescore": [
+                    {
+                        "score": "2"
+                    },
+                    {
+                        "score": "0"
+                    },
+                    {
+                        "score": "0"
+                    },
+                    {
+                        "score": "0"
+                    }
+                ]
             },
             "hTeam": {
                 "teamId": "1610612760",
@@ -1102,8 +1415,21 @@
                 "loss": "43",
                 "seriesWin": "",
                 "seriesLoss": "",
-                "score": "",
-                "linescore": []
+                "score": "2",
+                "linescore": [
+                    {
+                        "score": "2"
+                    },
+                    {
+                        "score": "0"
+                    },
+                    {
+                        "score": "0"
+                    },
+                    {
+                        "score": "0"
+                    }
+                ]
             },
             "watch": {
                 "broadcast": {

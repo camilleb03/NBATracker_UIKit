@@ -36,6 +36,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
+    func applicationWillEnterForeground(_ application: UIApplication) {
+        // Call to NBA today.json to retrieve currentDate
+//        let semaphore = DispatchSemaphore(value: 0)
+//        let request = NSMutableURLRequest(URL:url)
+//        let task = NSURLSession.sharedSession().dataTaskWithRequest(request,
+//                        completionHandler: {
+//               taskData, _, error -> () in
+//
+//               dispatch_semaphore_signal(semaphore);
+//         })
+//         task.resume()
+//         dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER)
+    }
+    
     func makeNavigationController(rootViewController: UIViewController) -> UINavigationController {
         let navigationController = UINavigationController(rootViewController: rootViewController)
         

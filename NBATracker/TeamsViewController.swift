@@ -14,7 +14,7 @@ class TeamsViewController: BaseViewController {
     var teamsService = TeamsService()
     var teams = [Team]()
     
-    var cellIdentifier = "reuseIdentifier"
+    var cellIdentifier = "TeamCellIdentifier"
 
     override func viewDidLoad() {
         super.viewDidLoad()
