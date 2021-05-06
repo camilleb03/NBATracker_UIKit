@@ -121,7 +121,6 @@ extension TeamsViewController: TeamsServiceDelegate {
     func teamsFetched(_ teams: [Team]) {
         // Set the returned videos to the videos property
         self.teams = teams
-        print("teamsFetched", teams[0])
         // Refresh the table view -> Fires TableView methods
         tableView.reloadData()
     }

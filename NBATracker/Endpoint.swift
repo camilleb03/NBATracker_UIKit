@@ -7,12 +7,14 @@
 
 import Foundation
 
+// TODO: Refactor to have seperate URL access for nba and logo
 struct Endpoint {
     var path: String
     var queryItems: [URLQueryItem] = []
 }
 
 extension Endpoint {
+    
     var nbaUrl: URL {
         var components = URLComponents()
         components.scheme = "https"
@@ -29,10 +31,11 @@ extension Endpoint {
         return url
     }
     var logoUrl: URL {
+        
         var components = URLComponents()
         components.scheme = "https"
         components.host = "cdn.nba.net"
-        components.path = "/assets/logos/teams/secondary/web/" + path
+        components.path = "/assets/logos/teams/primary/web/" + path
 
         guard let url = components.url else {
             preconditionFailure(
@@ -42,6 +45,8 @@ extension Endpoint {
 
         return url
     }
+    
+    // https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/1610612745/2019/260x190/201935.png
 }
 
 extension Endpoint {
@@ -58,6 +63,6 @@ extension Endpoint {
     }
     
     static func logo(for teamTriCode: String) -> Self {
-        Endpoint(path: "\(teamTriCode).svg")
+        Endpoint(path: "\(teamTriCode).png")
     }
 }
