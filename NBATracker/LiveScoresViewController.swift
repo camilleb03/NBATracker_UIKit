@@ -10,6 +10,7 @@ import UIKit
 class LiveScoresViewController: BaseViewController {
     
     var tableView = UITableView()
+    var refreshControl = UIRefreshControl()
     
     var dateString: String?
     
@@ -86,6 +87,20 @@ extension LiveScoresViewController: UITableViewDataSource {
         // Register cells to use in TableView
         tableView.register(LiveScoreTableViewCell.self, forCellReuseIdentifier: cellIdentifier)
         
+        // Refresh table view
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh scores")
+        refreshControl.addTarget(self, action: #selector(refreshTableViewData), for: .valueChanged)
+        if #available(iOS 10.0, *) {
+            tableView.refreshControl = refreshControl
+        } else {
+            tableView.addSubview(refreshControl)
+        }
+    }
+    
+    @objc private func refreshTableViewData(_ sender: Any) {
+        // FIXME: Weird flashing data while refreshing/reloading data
+        self.refreshControl.endRefreshing()
+        fetchLiveScoreBoards()
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

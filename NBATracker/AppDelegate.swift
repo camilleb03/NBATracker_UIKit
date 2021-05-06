@@ -61,12 +61,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let navigationController = UINavigationController(rootViewController: rootViewController)
         
         // Setting up navigation bar title
-        navigationController.navigationBar.prefersLargeTitles = true
-        let attrs = [
-            NSAttributedString.Key.foregroundColor: UIColor.label,
-            NSAttributedString.Key.font: UIFont.preferredFont(forTextStyle: .title1).bold()
-        ]
-        navigationController.navigationBar.largeTitleTextAttributes = attrs
+//        navigationController.navigationBar.prefersLargeTitles = true
+//        let attrs = [
+//            NSAttributedString.Key.foregroundColor: UIColor.label,
+//            NSAttributedString.Key.font: UIFont.preferredFont(forTextStyle: .title1).bold()
+//        ]
+//
+//        navigationController.navigationBar.largeTitleTextAttributes = attrs
         
         return navigationController
     }
