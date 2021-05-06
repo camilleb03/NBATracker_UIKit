@@ -13,6 +13,8 @@ class LiveScoresViewController: BaseViewController {
     
     var dateString: String?
     
+    let teamLogoCacheManager = TeamLogoCacheManager.shared
+    
     let liveScoresService = LiveScoresService()
     var liveScoreBoards = [LiveScoreBoard]()
     
@@ -101,6 +103,50 @@ extension LiveScoresViewController: UITableViewDataSource {
         // Configure the cell with the data
         let liveScoreBoard = self.liveScoreBoards[indexPath.row]
         cell.liveScoreBoard = liveScoreBoard
+        
+        cell.homeLogoImage = nil
+        cell.visitorLogoImage = nil
+
+        let representedIdentifier = liveScoreBoard.id
+        cell.representedIdentifier = representedIdentifier
+
+        func image(data: Data?) -> UIImage? {
+            if let data = data {
+                let image = UIImage(data: data)
+                return image
+            }
+            return UIImage(systemName: "sportscourt")
+        }
+
+        teamLogoCacheManager.fetch(for: liveScoreBoard.homeTeam.triCode) { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let teamLogo):
+                let img = image(data: teamLogo)
+                DispatchQueue.main.async {
+                    if (cell.representedIdentifier == representedIdentifier) {
+                        cell.homeLogoImage = img
+                    }
+                }
+            case .failure(let error):
+                self.showAlert(message: error.localizedDescription)
+            }
+        }
+
+        teamLogoCacheManager.fetch(for: liveScoreBoard.visitorTeam.triCode) { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let teamLogo):
+                let img = image(data: teamLogo)
+                DispatchQueue.main.async {
+                    if (cell.representedIdentifier == representedIdentifier) {
+                        cell.visitorLogoImage = img
+                    }
+                }
+            case .failure(let error):
+                self.showAlert(message: error.localizedDescription)
+            }
+        }
         
         // Return cell
         return cell
