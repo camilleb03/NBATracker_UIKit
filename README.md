@@ -1,8 +1,6 @@
 <h1 align="center"> NBATracker </h1>
 
-> Personal iOS project to display NBA infos on current teams, players and season with scoreboards of the day using data.nba.net API.
-
-<hr>
+> Personal iOS project to display NBA infos on current teams, players and season with scoreboards of the day using data.nba.net and cdn.nba.net APIs.
 
 ## Table of Contents
 1. [General Info](#general-info)
@@ -14,6 +12,8 @@
 <hr>
 
 ## General Info
+
+* iOS Deployment Target :
 
 **PROJECT STATUS: IN DEVELOPMENT**
 
@@ -29,7 +29,8 @@
 A list of technologies used within the project:
 * Xcode 12.4
 * Swift 5
-* [data.nba.net API](http://data.nba.net/10s/prod/v2/today.json)
+* data.nba.net API
+* cdn.nba.net API
 
 <hr>
 
