@@ -19,7 +19,7 @@ class TeamsService {
     
     func fetchTeams() {
         // Create a URL object (which points to the endpoint of the NBA API)
-        let year = NBATodayService.nbaToday?.seasonScheduleYear ?? Int(getCurrentDateString(with: "yyyy"))!
+        let year = NBATodayService.nbaToday?.seasonScheduleYear ?? Int(CustomDateFormatters.convertDateToyyyyString(for: Date()))!
         let url = Endpoint.teams(for: String(year)).nbaUrl
         
         // Get a URLSession object -> does the networking stuff :')

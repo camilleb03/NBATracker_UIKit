@@ -12,7 +12,7 @@ class LiveScoresViewController: BaseViewController {
     var tableView = UITableView()
     var refreshControl = UIRefreshControl()
     
-    var dateString: String?
+    var dateCode: String?
     
     let teamLogoCacheManager = TeamLogoCacheManager.shared
     
@@ -25,9 +25,10 @@ class LiveScoresViewController: BaseViewController {
         super.viewDidLoad()
         
         view.backgroundColor = .systemOrange
-        title = "Live Scores"
         
+        setDateCode()
         setupTableView()
+        setupTitle()
         fetchLiveScoreBoards()
         style()
         layout()
@@ -38,7 +39,7 @@ class LiveScoresViewController: BaseViewController {
     }
     
     private func fetchLiveScoreBoards() {
-        liveScoresService.fetch(for: (dateString ?? NBATodayService.nbaToday?.currentDateUrlCode) ?? getCurrentDateString(with: "yyyyMMdd")) { [weak self] result in
+        liveScoresService.fetch(for: dateCode!) { [weak self] result in
             guard let self = self else { return }
             switch result {
             case .success(let liveScoreBoards):
@@ -72,6 +73,16 @@ extension LiveScoresViewController {
             tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
     }
+    
+    private func setupTitle() {
+        let date = CustomDateFormatters.yyyyMMddFormatter.date(from: dateCode!)
+        title = "Games: " + CustomDateFormatters.convertDateTolocalDateMediumString(for: date!)
+    }
+    
+    private func setDateCode() {
+        dateCode = NBATodayService.nbaToday?.currentDateUrlCode ?? CustomDateFormatters.convertDateToyyyyMMddString(for: Date())
+    }
+
 }
 
 // MARK: - Table view data source

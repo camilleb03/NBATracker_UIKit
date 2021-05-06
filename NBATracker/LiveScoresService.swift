@@ -47,7 +47,7 @@ struct LiveScoresService {
             
             do {
                 let decoder = JSONDecoder()
-                decoder.dateDecodingStrategy = .formatted(DateFormatter.iso8601Full)
+                decoder.dateDecodingStrategy = .formatted(CustomDateFormatters.iso8601FullFormatter)
                 let response = try decoder.decode(LiveScoreBoardsRawResponse.self, from: data)
                 DispatchQueue.main.async {
                     completion(.success(response.scoreboards))

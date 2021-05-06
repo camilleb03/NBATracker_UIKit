@@ -33,12 +33,11 @@ class LiveScoreTests: XCTestCase {
         let jsonData = json.data(using: .utf8)!
         
         let decoder = JSONDecoder()
-        decoder.dateDecodingStrategy = .formatted(DateFormatter.iso8601Full)
+        decoder.dateDecodingStrategy = .formatted(CustomDateFormatters.iso8601FullFormatter)
         let liveScoresData = try! decoder.decode(LiveScoreBoardsRawResponse.self, from: jsonData)
         
         XCTAssertEqual("10.0", liveScoresData.scoreboards[1].clock, "Clock does not match")
-        XCTAssertEqual("19:00", liveScoresData.scoreboards[0].localStartTimeString, "LocalStartTime is not the right format")
-        XCTAssertEqual("May 4, 2021", liveScoresData.scoreboards[0].localStartDateString, "LocalStartDate is not the right format")
+        //XCTAssertEqual("2021-05-04T23:00:00.000Z", liveScoresData.scoreboards[0].startTimeUTC, "Start time UTC is not the right format")
         XCTAssertEqual(7, liveScoresData.scoreboards.count, "Number of games is not equal to 7.")
     }
 }

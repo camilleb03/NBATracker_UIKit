@@ -12,13 +12,6 @@ struct NBAToday {
     let currentDateUrlCode: String
     let seasonScheduleYear: Int
     
-    var currentDateString: String {
-        let dateFormatter: DateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyyMMdd"
-        let date = dateFormatter.date(from: currentDateUrlCode)!
-        dateFormatter.dateStyle = .medium
-        return dateFormatter.string(from: date)
-    }
 }
 
 extension NBAToday: Decodable {
