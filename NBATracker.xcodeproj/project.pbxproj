@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		00D720F9E763CC56B77B539F /* Pods_NBATracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 336E57B255A1EFBCF7AF7EC3 /* Pods_NBATracker.framework */; };
 		9103CA8F2641ACB800C05BEF /* LiveScoresViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9103CA8E2641ACB800C05BEF /* LiveScoresViewController.swift */; };
 		9103CA932641B04E00C05BEF /* Factories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9103CA922641B04E00C05BEF /* Factories.swift */; };
 		910A92632642FC5700668D6B /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910A92622642FC5700668D6B /* Endpoint.swift */; };
@@ -15,10 +16,13 @@
 		910A927B264315A500668D6B /* today.json in Resources */ = {isa = PBXBuildFile; fileRef = 910A927A264315A500668D6B /* today.json */; };
 		910A927F264315CC00668D6B /* NBATodayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910A927E264315CC00668D6B /* NBATodayTests.swift */; };
 		910A92832643291D00668D6B /* CurrentDateFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910A92822643291D00668D6B /* CurrentDateFormat.swift */; };
+		91179F162643A887001F86F4 /* SVGKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91179F102643A5A2001F86F4 /* SVGKit.framework */; };
 		912C0C512640DB9A00986B07 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912C0C502640DB9A00986B07 /* AppDelegate.swift */; };
 		912C0C552640DB9A00986B07 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912C0C542640DB9A00986B07 /* BaseViewController.swift */; };
 		912C0C5A2640DB9E00986B07 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 912C0C592640DB9E00986B07 /* Assets.xcassets */; };
 		912C0C5D2640DB9E00986B07 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 912C0C5B2640DB9E00986B07 /* LaunchScreen.storyboard */; };
+		9198ACA026438AF00013846F /* TeamLogoCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9198AC9F26438AF00013846F /* TeamLogoCacheManager.swift */; };
+		9198ACA426439C050013846F /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9198ACA326439C050013846F /* ImageCache.swift */; };
 		919B70DF2641C5A900E8FDF9 /* LiveScoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919B70DE2641C5A900E8FDF9 /* LiveScoreTableViewCell.swift */; };
 		919B70E32641CA0600E8FDF9 /* LiveScoreBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919B70E22641CA0600E8FDF9 /* LiveScoreBoard.swift */; };
 		919B70E72641DA2600E8FDF9 /* LiveScoresService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919B70E62641DA2600E8FDF9 /* LiveScoresService.swift */; };
@@ -33,6 +37,7 @@
 		919B8F2F2641029500FC466B /* TeamTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919B8F2E2641029500FC466B /* TeamTests.swift */; };
 		919B8F3526410AEC00FC466B /* TeamsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919B8F3426410AEC00FC466B /* TeamsViewController.swift */; };
 		919B8F4426410FC800FC466B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919B8F4326410FC800FC466B /* Constants.swift */; };
+		EAE157DE1BB30CC7BD949CC1 /* Pods_NBATrackerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11F8621F6320110A1C977165 /* Pods_NBATrackerTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +51,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		11F8621F6320110A1C977165 /* Pods_NBATrackerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NBATrackerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		23465CB875266853DBE5BE08 /* Pods-NBATrackerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NBATrackerTests.release.xcconfig"; path = "Target Support Files/Pods-NBATrackerTests/Pods-NBATrackerTests.release.xcconfig"; sourceTree = "<group>"; };
+		336E57B255A1EFBCF7AF7EC3 /* Pods_NBATracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NBATracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6929D523546DED9A347E0346 /* Pods-NBATracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NBATracker.release.xcconfig"; path = "Target Support Files/Pods-NBATracker/Pods-NBATracker.release.xcconfig"; sourceTree = "<group>"; };
 		9103CA8E2641ACB800C05BEF /* LiveScoresViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveScoresViewController.swift; sourceTree = "<group>"; };
 		9103CA922641B04E00C05BEF /* Factories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Factories.swift; sourceTree = "<group>"; };
 		910A92622642FC5700668D6B /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
@@ -54,12 +63,16 @@
 		910A927A264315A500668D6B /* today.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = today.json; sourceTree = "<group>"; };
 		910A927E264315CC00668D6B /* NBATodayTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NBATodayTests.swift; sourceTree = "<group>"; };
 		910A92822643291D00668D6B /* CurrentDateFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentDateFormat.swift; sourceTree = "<group>"; };
+		91179F102643A5A2001F86F4 /* SVGKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SVGKit.framework; path = "../../../Library/Developer/Xcode/DerivedData/SVGKit-iOS-cbytwdeauyelvtfztrlaiojicdnb/Build/Products/Debug-iphonesimulator/SVGKit.framework"; sourceTree = "<group>"; };
+		91179F1B2643AB45001F86F4 /* bridging-header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "bridging-header.h"; sourceTree = "<group>"; };
 		912C0C4D2640DB9A00986B07 /* NBATracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NBATracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		912C0C502640DB9A00986B07 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		912C0C542640DB9A00986B07 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		912C0C592640DB9E00986B07 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		912C0C5C2640DB9E00986B07 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		912C0C5E2640DB9E00986B07 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9198AC9F26438AF00013846F /* TeamLogoCacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamLogoCacheManager.swift; sourceTree = "<group>"; };
+		9198ACA326439C050013846F /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		919B70DE2641C5A900E8FDF9 /* LiveScoreTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveScoreTableViewCell.swift; sourceTree = "<group>"; };
 		919B70E22641CA0600E8FDF9 /* LiveScoreBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveScoreBoard.swift; sourceTree = "<group>"; };
 		919B70E62641DA2600E8FDF9 /* LiveScoresService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveScoresService.swift; sourceTree = "<group>"; };
@@ -76,6 +89,8 @@
 		919B8F2E2641029500FC466B /* TeamTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamTests.swift; sourceTree = "<group>"; };
 		919B8F3426410AEC00FC466B /* TeamsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsViewController.swift; sourceTree = "<group>"; };
 		919B8F4326410FC800FC466B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		A88909E8E3F4A3F8D42D4F36 /* Pods-NBATrackerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NBATrackerTests.debug.xcconfig"; path = "Target Support Files/Pods-NBATrackerTests/Pods-NBATrackerTests.debug.xcconfig"; sourceTree = "<group>"; };
+		F441786E004F8CAFF541043A /* Pods-NBATracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NBATracker.debug.xcconfig"; path = "Target Support Files/Pods-NBATracker/Pods-NBATracker.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +98,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00D720F9E763CC56B77B539F /* Pods_NBATracker.framework in Frameworks */,
+				91179F162643A887001F86F4 /* SVGKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,18 +107,31 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EAE157DE1BB30CC7BD949CC1 /* Pods_NBATrackerTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		91179F0F2643A5A2001F86F4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				91179F102643A5A2001F86F4 /* SVGKit.framework */,
+				336E57B255A1EFBCF7AF7EC3 /* Pods_NBATracker.framework */,
+				11F8621F6320110A1C977165 /* Pods_NBATrackerTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		912C0C442640DB9A00986B07 = {
 			isa = PBXGroup;
 			children = (
 				912C0C4F2640DB9A00986B07 /* NBATracker */,
 				919B8F1E264101FF00FC466B /* NBATrackerTests */,
 				912C0C4E2640DB9A00986B07 /* Products */,
+				91179F0F2643A5A2001F86F4 /* Frameworks */,
+				E10915CC0FB325820033C77C /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -117,6 +147,7 @@
 		912C0C4F2640DB9A00986B07 /* NBATracker */ = {
 			isa = PBXGroup;
 			children = (
+				91179F1B2643AB45001F86F4 /* bridging-header.h */,
 				912C0C502640DB9A00986B07 /* AppDelegate.swift */,
 				919B8EED2640E04D00FC466B /* Helpers */,
 				919B8EEC2640E03700FC466B /* Models */,
@@ -136,6 +167,7 @@
 				919B70E62641DA2600E8FDF9 /* LiveScoresService.swift */,
 				910A927626430E0E00668D6B /* NBATodayService.swift */,
 				919B8EEE2640E4CE00FC466B /* TeamsService.swift */,
+				9198AC9F26438AF00013846F /* TeamLogoCacheManager.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -177,6 +209,7 @@
 				919B710826421D4100E8FDF9 /* Extensions.swift */,
 				910A92622642FC5700668D6B /* Endpoint.swift */,
 				9103CA922641B04E00C05BEF /* Factories.swift */,
+				9198ACA326439C050013846F /* ImageCache.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -212,6 +245,17 @@
 			path = fixtures;
 			sourceTree = "<group>";
 		};
+		E10915CC0FB325820033C77C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F441786E004F8CAFF541043A /* Pods-NBATracker.debug.xcconfig */,
+				6929D523546DED9A347E0346 /* Pods-NBATracker.release.xcconfig */,
+				A88909E8E3F4A3F8D42D4F36 /* Pods-NBATrackerTests.debug.xcconfig */,
+				23465CB875266853DBE5BE08 /* Pods-NBATrackerTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -219,10 +263,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 912C0C612640DB9E00986B07 /* Build configuration list for PBXNativeTarget "NBATracker" */;
 			buildPhases = (
+				75F62D796C1BE61A4CB595B6 /* [CP] Check Pods Manifest.lock */,
 				912C0C492640DB9A00986B07 /* Sources */,
 				910A92712643045500668D6B /* ShellScript */,
 				912C0C4A2640DB9A00986B07 /* Frameworks */,
 				912C0C4B2640DB9A00986B07 /* Resources */,
+				6BE284B20932074A7C482731 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -237,6 +283,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 919B8F24264101FF00FC466B /* Build configuration list for PBXNativeTarget "NBATrackerTests" */;
 			buildPhases = (
+				7ADBDCABA5A29FFA5ECE5E45 /* [CP] Check Pods Manifest.lock */,
 				919B8F19264101FF00FC466B /* Sources */,
 				919B8F1A264101FF00FC466B /* Frameworks */,
 				919B8F1B264101FF00FC466B /* Resources */,
@@ -311,6 +358,67 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		6BE284B20932074A7C482731 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-NBATracker/Pods-NBATracker-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-NBATracker/Pods-NBATracker-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-NBATracker/Pods-NBATracker-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		75F62D796C1BE61A4CB595B6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-NBATracker-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7ADBDCABA5A29FFA5ECE5E45 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-NBATrackerTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		910A92712643045500668D6B /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -344,9 +452,11 @@
 				910A92832643291D00668D6B /* CurrentDateFormat.swift in Sources */,
 				919B8EF32640E4F300FC466B /* Team.swift in Sources */,
 				919B71032641F1F600E8FDF9 /* APIError.swift in Sources */,
+				9198ACA426439C050013846F /* ImageCache.swift in Sources */,
 				9103CA8F2641ACB800C05BEF /* LiveScoresViewController.swift in Sources */,
 				910A9267264300D600668D6B /* NBAToday.swift in Sources */,
 				919B70E32641CA0600E8FDF9 /* LiveScoreBoard.swift in Sources */,
+				9198ACA026438AF00013846F /* TeamLogoCacheManager.swift in Sources */,
 				919B710926421D4100E8FDF9 /* Extensions.swift in Sources */,
 				919B70DF2641C5A900E8FDF9 /* LiveScoreTableViewCell.swift in Sources */,
 				919B8F4426410FC800FC466B /* Constants.swift in Sources */,
@@ -506,6 +616,7 @@
 		};
 		912C0C622640DB9E00986B07 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F441786E004F8CAFF541043A /* Pods-NBATracker.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -518,6 +629,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.camillebourbonnais.NBATracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "NBATracker/bridging-header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -525,6 +637,7 @@
 		};
 		912C0C632640DB9E00986B07 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6929D523546DED9A347E0346 /* Pods-NBATracker.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -544,6 +657,7 @@
 		};
 		919B8F25264101FF00FC466B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A88909E8E3F4A3F8D42D4F36 /* Pods-NBATrackerTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -564,6 +678,7 @@
 		};
 		919B8F26264101FF00FC466B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 23465CB875266853DBE5BE08 /* Pods-NBATrackerTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;

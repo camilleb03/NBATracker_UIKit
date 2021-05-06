@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SVGKit
 
 class LiveScoresViewController: BaseViewController {
     
@@ -14,6 +15,9 @@ class LiveScoresViewController: BaseViewController {
     var dateString: String?
     
     let liveScoresService = LiveScoresService()
+    
+    let teamLogoCacheManager = TeamLogoCacheManager.shared
+
     var liveScoreBoards = [LiveScoreBoard]()
     
     var cellIdentifier = "LiveScoreCellIdentifier"
@@ -101,6 +105,51 @@ extension LiveScoresViewController: UITableViewDataSource {
         // Configure the cell with the data
         let liveScoreBoard = self.liveScoreBoards[indexPath.row]
         cell.liveScoreBoard = liveScoreBoard
+        
+        cell.homeLogoImage = nil
+        cell.visitorLogoImage = nil
+        
+        let representedIdentifier = liveScoreBoard.id
+        cell.representedIdentifier = representedIdentifier
+        
+        func image(data: Data?) -> SVGKImage? {
+            if let data = data {
+                let image = SVGKImage(data: data)
+                return image
+            }
+            return nil
+        }
+        
+        teamLogoCacheManager.fetch(for: liveScoreBoard.homeTeam.triCode) { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let teamLogo):
+                let img = image(data: teamLogo)
+                DispatchQueue.main.async {
+                    if (cell.representedIdentifier == representedIdentifier) {
+                        cell.homeLogoImage = img
+                        cell.setNeedsLayout()
+                    }
+                }
+            case .failure(let error):
+                self.showAlert(message: error.localizedDescription)
+            }
+        }
+        
+        teamLogoCacheManager.fetch(for: liveScoreBoard.visitorTeam.triCode) { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let teamLogo):
+                let img = image(data: teamLogo)
+                DispatchQueue.main.async {
+                    if (cell.representedIdentifier == representedIdentifier) {
+                        cell.visitorLogoImage = img
+                    }
+                }
+            case .failure(let error):
+                self.showAlert(message: error.localizedDescription)
+            }
+        }
         
         // Return cell
         return cell

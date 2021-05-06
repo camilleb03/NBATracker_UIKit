@@ -13,6 +13,7 @@ struct Endpoint {
 }
 
 extension Endpoint {
+    
     var nbaUrl: URL {
         var components = URLComponents()
         components.scheme = "https"
@@ -28,6 +29,7 @@ extension Endpoint {
 
         return url
     }
+    
     var logoUrl: URL {
         var components = URLComponents()
         components.scheme = "https"
@@ -42,6 +44,9 @@ extension Endpoint {
 
         return url
     }
+    
+    // https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/1610612745/2019/260x190/201935.png
+    
 }
 
 extension Endpoint {

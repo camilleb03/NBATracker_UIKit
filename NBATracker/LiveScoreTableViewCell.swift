@@ -6,15 +6,15 @@
 //
 
 import UIKit
+import WebKit
 
 class LiveScoreTableViewCell: UITableViewCell {
+    
+    var representedIdentifier: String = ""
     
     var liveScoreBoard : LiveScoreBoard? {
         didSet {
             if let ls = liveScoreBoard {
-                homeTeamNameLabel.text = ls.homeTeam.triCode
-                visitorTeamNameLabel.text = ls.visitorTeam.triCode
-                
                 homeTeamRecordLabel.text = ls.homeTeam.win + " - " + ls.homeTeam.loss
                 visitorTeamRecordLabel.text = ls.visitorTeam.win + " - " + ls.visitorTeam.loss
                 
@@ -26,16 +26,33 @@ class LiveScoreTableViewCell: UITableViewCell {
         }
     }
     
+    var homeLogoImage: SVGKImage? {
+        didSet {
+            homeTeamLogoImageView.image = homeLogoImage?.uiImage
+        }
+      }
+      
+      var visitorLogoImage: SVGKImage? {
+        didSet {
+            visitorTeamLogoImageView.image = visitorLogoImage?.uiImage
+        }
+      }
+    
     // View elements
     let rootStackView = UIStackView()
+    
     let homeTeamStackView = UIStackView()
     let homeTeamNameLabel = UILabel()
     let homeTeamRecordLabel = UILabel()
     let homeTeamScoreLabel = UILabel()
+    let homeTeamLogoImageView = UIImageView()
+    
     let visitorTeamStackView = UIStackView()
     let visitorTeamNameLabel = UILabel()
     let visitorTeamRecordLabel = UILabel()
     let visitorTeamScoreLabel = UILabel()
+    let visitorTeamLogoImageView = UIImageView()
+    
     let currentPeriodLabel = UILabel()
     
     override func awakeFromNib() {
@@ -75,7 +92,7 @@ extension LiveScoreTableViewCell {
         homeTeamStackView.spacing = 8
         homeTeamStackView.axis = .vertical
         
-        
+        homeTeamLogoImageView.translatesAutoresizingMaskIntoConstraints = false
         
         homeTeamScoreLabel.translatesAutoresizingMaskIntoConstraints = false
         homeTeamScoreLabel.text = ""
@@ -85,6 +102,8 @@ extension LiveScoreTableViewCell {
         visitorTeamStackView.translatesAutoresizingMaskIntoConstraints = false
         visitorTeamStackView.spacing = 8
         visitorTeamStackView.axis = .vertical
+        
+        visitorTeamLogoImageView.translatesAutoresizingMaskIntoConstraints = false
         
         visitorTeamScoreLabel.translatesAutoresizingMaskIntoConstraints = false
         visitorTeamScoreLabel.text = "55"
@@ -99,10 +118,10 @@ extension LiveScoreTableViewCell {
     
     private func layout() {
         
-        homeTeamStackView.addArrangedSubview(homeTeamNameLabel)
+        homeTeamStackView.addArrangedSubview(homeTeamLogoImageView)
         homeTeamStackView.addArrangedSubview(homeTeamRecordLabel)
         
-        visitorTeamStackView.addArrangedSubview(visitorTeamNameLabel)
+        visitorTeamStackView.addArrangedSubview(visitorTeamLogoImageView)
         visitorTeamStackView.addArrangedSubview(visitorTeamRecordLabel)
         
         rootStackView.addArrangedSubview(homeTeamStackView)
@@ -118,7 +137,7 @@ extension LiveScoreTableViewCell {
             rootStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
             rootStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
             rootStackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
-            rootStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8)
+            rootStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8),
         ])
     }
 }

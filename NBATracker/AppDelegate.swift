@@ -24,14 +24,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 let response = try JSONDecoder().decode(NBAToday.self, from: data!)
                 didFetch = true
                 NBATodayService.nbaToday = NBAToday.init(currentDateUrlCode: response.currentDateUrlCode, seasonScheduleYear: response.seasonScheduleYear)
+                semaphore.signal();
             } catch {
                 print(error)
             }
-            semaphore.signal();
         }
         task.resume()
         let _ = semaphore.wait(timeout: DispatchTime.distantFuture)
-        
         if didFetch == false {
             return false
         }

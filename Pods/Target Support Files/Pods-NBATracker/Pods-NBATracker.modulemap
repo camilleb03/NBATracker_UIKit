@@ -1,0 +1,6 @@
+framework module Pods_NBATracker {
+  umbrella header "Pods-NBATracker-umbrella.h"
+
+  export *
+  module * { export * }
+}
