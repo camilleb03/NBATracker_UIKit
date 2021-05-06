@@ -39,7 +39,7 @@ extension URLSession {
         then handler: @escaping Handler
     ) -> URLSessionDataTask {
         let task = dataTask(
-            with: endpoint.url,
+            with: endpoint.nbaUrl,
             completionHandler: handler
         )
 

@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Call to NBA today.json to retrieve currentDate
         let semaphore = DispatchSemaphore(value: 0)
         var didFetch = false
-        let url = Endpoint.today.url
+        let url = Endpoint.today.nbaUrl
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
             do {
                 let response = try JSONDecoder().decode(NBAToday.self, from: data!)

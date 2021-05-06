@@ -12,7 +12,7 @@ struct LiveScoresService {
     func fetch(for date: String, completion: @escaping (Result<[LiveScoreBoard], Error>) -> Void) {
         
         // Create a URL object (which points to the endpoint of the NBA API)
-        let url = Endpoint.scoreboard(for: date).url
+        let url = Endpoint.scoreboard(for: date).nbaUrl
         URLSession.shared.dataTask(with: url) { data, response, error in
             
             if let error = error {
