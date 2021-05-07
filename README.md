@@ -67,3 +67,9 @@ List of features coming :
 - Standings
   - Retrieve info from API
   - Make UI
+
+<hr>
+
+## License
+
+* Basketball image of app logo designed by BSGStudio (taken from https://all-free-download.com/)
