@@ -19,6 +19,7 @@
 		912C0C5A2640DB9E00986B07 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 912C0C592640DB9E00986B07 /* Assets.xcassets */; };
 		912C0C5D2640DB9E00986B07 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 912C0C5B2640DB9E00986B07 /* LaunchScreen.storyboard */; };
 		915FFAA52644B1EE00000C8B /* CustomDateFormattersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915FFAA42644B1EE00000C8B /* CustomDateFormattersTests.swift */; };
+		916C80E82644FEFB002CC403 /* StandingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916C80E72644FEFB002CC403 /* StandingsViewController.swift */; };
 		9190919D264441DF001EA3E1 /* URLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9190919C264441DF001EA3E1 /* URLSession.swift */; };
 		919091A826444838001EA3E1 /* TeamLogoCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919091A726444838001EA3E1 /* TeamLogoCacheManager.swift */; };
 		919B70DF2641C5A900E8FDF9 /* LiveScoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919B70DE2641C5A900E8FDF9 /* LiveScoreTableViewCell.swift */; };
@@ -65,6 +66,7 @@
 		912C0C5C2640DB9E00986B07 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		912C0C5E2640DB9E00986B07 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		915FFAA42644B1EE00000C8B /* CustomDateFormattersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDateFormattersTests.swift; sourceTree = "<group>"; };
+		916C80E72644FEFB002CC403 /* StandingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandingsViewController.swift; sourceTree = "<group>"; };
 		9190919C264441DF001EA3E1 /* URLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSession.swift; sourceTree = "<group>"; };
 		919091A726444838001EA3E1 /* TeamLogoCacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamLogoCacheManager.swift; sourceTree = "<group>"; };
 		919B70DE2641C5A900E8FDF9 /* LiveScoreTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveScoreTableViewCell.swift; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 			children = (
 				912C0C542640DB9A00986B07 /* BaseViewController.swift */,
 				9103CA8E2641ACB800C05BEF /* LiveScoresViewController.swift */,
+				916C80E72644FEFB002CC403 /* StandingsViewController.swift */,
 				919B8F3426410AEC00FC466B /* TeamsViewController.swift */,
 			);
 			name = Controllers;
@@ -373,6 +376,7 @@
 				919B710926421D4100E8FDF9 /* CustomDateFormatters.swift in Sources */,
 				919B70DF2641C5A900E8FDF9 /* LiveScoreTableViewCell.swift in Sources */,
 				9190919D264441DF001EA3E1 /* URLSession.swift in Sources */,
+				916C80E82644FEFB002CC403 /* StandingsViewController.swift in Sources */,
 				919091A826444838001EA3E1 /* TeamLogoCacheManager.swift in Sources */,
 				919B8F4426410FC800FC466B /* Constants.swift in Sources */,
 				919B70E72641DA2600E8FDF9 /* LiveScoresService.swift in Sources */,

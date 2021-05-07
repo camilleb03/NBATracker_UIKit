@@ -43,13 +43,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Declaring VC for each tab item
         let teamsTableVC = TeamsViewController()
         let liveScoresVC = LiveScoresViewController()
+        let standingsVC = StandingsViewController()
         
         // Embed each VC in a NavController
         let teamsTableNC = makeNavigationController(rootViewController: teamsTableVC)
         let liveScoresNC = makeNavigationController(rootViewController: liveScoresVC)
+        let standingsNC = makeNavigationController(rootViewController: standingsVC)
         
         let tabBarController = UITabBarController()
-        tabBarController.viewControllers = [liveScoresNC, teamsTableNC]
+        tabBarController.viewControllers = [standingsNC, liveScoresNC, teamsTableNC]
+        // Select livescore TabBarItem on launch
+        tabBarController.selectedIndex = 1
         
         // Specify which ViewController to launch at the start of the app
         window?.rootViewController = tabBarController

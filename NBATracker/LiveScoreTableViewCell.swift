@@ -14,7 +14,6 @@ class LiveScoreTableViewCell: UITableViewCell {
     var liveScoreBoard : LiveScoreBoard? {
         didSet {
             if let ls = liveScoreBoard {
-                print(ls.gameStatus)
                 homeTeamNameLabel.text = ls.homeTeam.triCode
                 visitorTeamNameLabel.text = ls.visitorTeam.triCode
                 

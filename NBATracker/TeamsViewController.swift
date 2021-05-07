@@ -26,7 +26,7 @@ class TeamsViewController: BaseViewController {
     }
     
     override func commonInit() {
-        setTabBarImage(imageName: "magnifyingglass.circle.fill", title: "Search")
+        setTabBarImage(imageName: "chart.bar.xaxis", title: "Statistics")
         setNavBarTitle(title: "Teams")
     }
 }
@@ -46,7 +46,6 @@ extension TeamsViewController {
         ])
     }
 }
-    
 
 // MARK: - Table view data source
 extension TeamsViewController: UITableViewDataSource {
