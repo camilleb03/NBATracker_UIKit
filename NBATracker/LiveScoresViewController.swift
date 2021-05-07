@@ -23,12 +23,9 @@ class LiveScoresViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        view.backgroundColor = .systemOrange
-        
+                
         setDateCode()
         setupTableView()
-        setupTitle()
         fetchLiveScoreBoards()
         style()
         layout()
@@ -36,6 +33,9 @@ class LiveScoresViewController: BaseViewController {
     
     override func commonInit() {
         setTabBarImage(imageName: "sportscourt.fill", title: "Live Scores")
+        setDateCode()
+        let date = CustomDateFormatters.yyyyMMddFormatter.date(from: dateCode!)
+        setNavBarTitle(title: "Games: " + CustomDateFormatters.convertDateTolocalDateMediumString(for: date!))
     }
     
     private func fetchLiveScoreBoards() {
@@ -72,11 +72,6 @@ extension LiveScoresViewController {
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
-    }
-    
-    private func setupTitle() {
-        let date = CustomDateFormatters.yyyyMMddFormatter.date(from: dateCode!)
-        title = "Games: " + CustomDateFormatters.convertDateTolocalDateMediumString(for: date!)
     }
     
     private func setDateCode() {
@@ -181,7 +176,7 @@ extension LiveScoresViewController: UITableViewDataSource {
 
 extension LiveScoresViewController: UITableViewDelegate {
     
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return 100
-//    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
+    }
 }

@@ -49,7 +49,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let liveScoresNC = makeNavigationController(rootViewController: liveScoresVC)
         
         let tabBarController = UITabBarController()
-        tabBarController.viewControllers = [teamsTableNC, liveScoresNC]
+        tabBarController.viewControllers = [liveScoresNC, teamsTableNC]
         
         // Specify which ViewController to launch at the start of the app
         window?.rootViewController = tabBarController

@@ -10,12 +10,10 @@ import Foundation
 class CustomDateFormatters {
 
     public static var iso8601FullFormatter: DateFormatter {
-        print("Entered public static iso8601FullFormatter")
         return CustomDateFormatters.iso8601Full
     }
     
     public static var yyyyMMddFormatter: DateFormatter {
-        print("Entered public static yyyyMMddFormatter")
         return CustomDateFormatters.yyyyMMdd
     }
     
@@ -32,7 +30,6 @@ class CustomDateFormatters {
     }
 
     private static let iso8601Full: DateFormatter = {
-        print("Instanciate private formatter iso8601Full")
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
         formatter.calendar = Calendar(identifier: .iso8601)
@@ -42,14 +39,12 @@ class CustomDateFormatters {
       }()
     
     private static let yyyyMMdd: DateFormatter = {
-        print("Instanciate private formatter yyyyMMdd")
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyyMMdd"
         return formatter
       }()
     
     private static let localTimeShort: DateFormatter = {
-        print("Instanciate private formatter localTimeShort")
         let formatter = DateFormatter()
         var localTimeZoneAbbreviation: String { return TimeZone.current.abbreviation() ?? "UTC" }
         formatter.locale = Locale.init(identifier: localTimeZoneAbbreviation)
@@ -58,7 +53,6 @@ class CustomDateFormatters {
     }()
     
     private static let localDateMedium: DateFormatter = {
-        print("Instanciate private formatter localDateMedium")
         let formatter = DateFormatter()
         var localTimeZoneAbbreviation: String { return TimeZone.current.abbreviation() ?? "UTC" }
         formatter.locale = Locale.init(identifier: localTimeZoneAbbreviation)

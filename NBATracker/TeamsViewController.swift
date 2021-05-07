@@ -18,11 +18,6 @@ class TeamsViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-        view.backgroundColor = .systemIndigo
-        title = "Search"
         
         setupTableView()
         setupTeamsService()
@@ -32,6 +27,7 @@ class TeamsViewController: BaseViewController {
     
     override func commonInit() {
         setTabBarImage(imageName: "magnifyingglass.circle.fill", title: "Search")
+        setNavBarTitle(title: "Teams")
     }
 }
 
