@@ -28,6 +28,11 @@ class BaseViewController: UIViewController {
         let image = UIImage(systemName: imageName, withConfiguration: configuration)
         tabBarItem = UITabBarItem(title: title, image: image, tag: 0)
     }
+    
+    // NavBarItem config
+    func setNavBarTitle(title: String) {
+        navigationItem.title = title
+    }
 
 }
 

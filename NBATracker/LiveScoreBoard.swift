@@ -35,30 +35,37 @@ struct LiveScoreBoard {
     
     let id: String
     let gameUrlCode: String
-    let isGameActivated: Bool
-    let isHalftime: Bool
-    let isEndOfPeriod: Bool
     let startTimeUTC: Date
     let currentPeriod: Int
     let clock: String
     let visitorTeam: SBTeam
     let homeTeam: SBTeam
+    var gameStatus: GameStatus
     
-    //TODO: formatter as an attribute ?
-    var localStartTimeString: String {
-        let formatter = DateFormatter()
-        var localTimeZoneAbbreviation: String { return TimeZone.current.abbreviation() ?? "UTC" }
-        formatter.locale = Locale.init(identifier: localTimeZoneAbbreviation)
-        formatter.timeStyle = .short
-        return formatter.string(from: self.startTimeUTC)
+    struct SBTeam: Decodable {
+        
+        let teamId: String
+        let triCode: String
+        let win: String
+        let loss: String
+        let score: String
     }
     
-    var localStartDateString: String {
-        let formatter = DateFormatter()
-        var localTimeZoneAbbreviation: String { return TimeZone.current.abbreviation() ?? "UTC" }
-        formatter.locale = Locale.init(identifier: localTimeZoneAbbreviation)
-        formatter.dateStyle = .medium
-        return formatter.string(from: self.startTimeUTC)
+    public func getGameInfoString() -> String {
+        switch gameStatus {
+            case .isUnitiated:
+                return CustomDateFormatters.convertDateTolocalTimeShortString(for: startTimeUTC)
+            case .isPlaying:
+                return "Q\(currentPeriod) | \(clock)"
+            case .isHalftime:
+                return "HALFTIME"
+            case .isEndOfPeriod:
+                return "END OF Q\(currentPeriod)"
+            case .isFinished:
+                return "FINAL"
+            case .undefined:
+                return "UNDEFINED"
+        }
     }
 }
 
@@ -67,7 +74,7 @@ extension LiveScoreBoard: Decodable {
     enum CodingKeys: String, CodingKey {
         case id = "gameId"
         case gameUrlCode = "gameUrlCode"
-        case isGameActivated = "isGameActivated"
+        case statusNum = "statusNum"
         case startTimeUTC = "startTimeUTC"
         case period = "period"
         case clock = "clock"
@@ -88,7 +95,6 @@ extension LiveScoreBoard: Decodable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.id = try container.decode(String.self, forKey: .id)
         self.gameUrlCode = try container.decode(String.self, forKey: .gameUrlCode)
-        self.isGameActivated = try container.decode(Bool.self, forKey: .isGameActivated)
         
         self.startTimeUTC = try container.decode(Date.self, forKey: .startTimeUTC)
         self.clock = try container.decode(String.self, forKey: .clock)
@@ -96,19 +102,17 @@ extension LiveScoreBoard: Decodable {
         self.visitorTeam = try container.decode(SBTeam.self, forKey: .visitorTeam)
         self.homeTeam = try container.decode(SBTeam.self, forKey: .homeTeam)
         
+        let statusNum = try container.decode(Int.self, forKey: .statusNum)
+        
+        
         // Period level
         let periodContainer = try container.nestedContainer(keyedBy: CodingKeys.PeriodKeys.self, forKey: .period)
         self.currentPeriod = try periodContainer.decode(Int.self, forKey: .currentPeriod)
-        self.isHalftime = try periodContainer.decode(Bool.self, forKey: .isHalftime)
-        self.isEndOfPeriod = try periodContainer.decode(Bool.self, forKey: .isEndOfPeriod)
+        let isHalftime = try periodContainer.decode(Bool.self, forKey: .isHalftime)
+        let isEndOfPeriod = try periodContainer.decode(Bool.self, forKey: .isEndOfPeriod)
+        
+        // Set gameStatus
+        self.gameStatus = GameStatus.undefined
+        self.gameStatus = GameStatus.setGameStatus(statusNum: statusNum, isHalftime: isHalftime, isEndOfPeriod: isEndOfPeriod)
     }
-}
-
-struct SBTeam: Decodable {
-    
-    let teamId: String
-    let triCode: String
-    let win: String
-    let loss: String
-    let score: String
 }

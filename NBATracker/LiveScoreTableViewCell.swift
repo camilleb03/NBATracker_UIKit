@@ -14,6 +14,7 @@ class LiveScoreTableViewCell: UITableViewCell {
     var liveScoreBoard : LiveScoreBoard? {
         didSet {
             if let ls = liveScoreBoard {
+                print(ls.gameStatus)
                 homeTeamNameLabel.text = ls.homeTeam.triCode
                 visitorTeamNameLabel.text = ls.visitorTeam.triCode
                 
@@ -22,8 +23,7 @@ class LiveScoreTableViewCell: UITableViewCell {
                 
                 homeTeamScoreLabel.text = ls.homeTeam.score
                 visitorTeamScoreLabel.text = ls.visitorTeam.score
-                
-                currentPeriodLabel.text = String(ls.currentPeriod)
+                gameStatusLabel.text = ls.getGameInfoString()
             }
         }
     }
@@ -31,12 +31,26 @@ class LiveScoreTableViewCell: UITableViewCell {
     var homeLogoImage: UIImage? {
         didSet {
             homeTeamLogoImageView.image = homeLogoImage
+            if homeTeamLogoImageView.frame.width > homeTeamLogoImageView.frame.height {
+                homeTeamLogoImageView.contentMode = .scaleAspectFit
+                //since the width > height we may fit it and we'll have bands on top/bottom
+            } else {
+                homeTeamLogoImageView.contentMode = .scaleAspectFill
+                //width < height we fill it until width is taken up and clipped on top/bottom
+            }
         }
     }
     
     var visitorLogoImage: UIImage? {
         didSet {
             visitorTeamLogoImageView.image = visitorLogoImage
+            if visitorTeamLogoImageView.frame.width > visitorTeamLogoImageView.frame.height {
+                visitorTeamLogoImageView.contentMode = .scaleAspectFit
+                //since the width > height we may fit it and we'll have bands on top/bottom
+            } else {
+                visitorTeamLogoImageView.contentMode = .scaleAspectFill
+                //width < height we fill it until width is taken up and clipped on top/bottom
+            }
         }
     }
     
@@ -55,7 +69,7 @@ class LiveScoreTableViewCell: UITableViewCell {
     let visitorTeamScoreLabel = UILabel()
     let visitorTeamLogoImageView = UIImageView()
     
-    let currentPeriodLabel = UILabel()
+    let gameStatusLabel = UILabel()
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -84,10 +98,9 @@ extension LiveScoreTableViewCell {
     private func styleCell() {
         
         rootStackView.translatesAutoresizingMaskIntoConstraints = false
-        rootStackView.spacing = 10
         rootStackView.axis = .horizontal
-        rootStackView.alignment = .center
-        rootStackView.distribution = .equalSpacing
+        rootStackView.alignment = .fill
+        rootStackView.distribution = .fillEqually
         
         // Home Team
         homeTeamStackView.translatesAutoresizingMaskIntoConstraints = false
@@ -97,8 +110,12 @@ extension LiveScoreTableViewCell {
         homeTeamLogoImageView.translatesAutoresizingMaskIntoConstraints = false
         
         homeTeamScoreLabel.translatesAutoresizingMaskIntoConstraints = false
-        homeTeamScoreLabel.text = ""
-        homeTeamScoreLabel.font = UIFont.preferredFont(forTextStyle: .largeTitle)
+        homeTeamScoreLabel.font = UIFont.preferredFont(forTextStyle: .title1)
+        homeTeamScoreLabel.textAlignment = .center
+        
+        homeTeamRecordLabel.translatesAutoresizingMaskIntoConstraints = false
+        homeTeamRecordLabel.font = UIFont.preferredFont(forTextStyle: .body)
+        homeTeamRecordLabel.textAlignment = .center
         
         // Visitor Team
         visitorTeamStackView.translatesAutoresizingMaskIntoConstraints = false
@@ -108,13 +125,18 @@ extension LiveScoreTableViewCell {
         visitorTeamLogoImageView.translatesAutoresizingMaskIntoConstraints = false
         
         visitorTeamScoreLabel.translatesAutoresizingMaskIntoConstraints = false
-        visitorTeamScoreLabel.text = "55"
-        visitorTeamScoreLabel.font = UIFont.preferredFont(forTextStyle: .largeTitle)
+        visitorTeamScoreLabel.font = UIFont.preferredFont(forTextStyle: .title1)
+        visitorTeamScoreLabel.textAlignment = .center
         
-        // Game Time
-        currentPeriodLabel.translatesAutoresizingMaskIntoConstraints = false
-        currentPeriodLabel.text = "2"
-        currentPeriodLabel.font = UIFont.preferredFont(forTextStyle: .largeTitle)
+        visitorTeamRecordLabel.translatesAutoresizingMaskIntoConstraints = false
+        visitorTeamRecordLabel.font = UIFont.preferredFont(forTextStyle: .body)
+        visitorTeamRecordLabel.textAlignment = .center
+        
+        // Game Infos
+        gameStatusLabel.translatesAutoresizingMaskIntoConstraints = false
+        gameStatusLabel.font = UIFont.preferredFont(forTextStyle: .title3)
+        gameStatusLabel.textAlignment = .center
+        gameStatusLabel.adjustsFontSizeToFitWidth = true
         
     }
     
@@ -128,7 +150,7 @@ extension LiveScoreTableViewCell {
         
         rootStackView.addArrangedSubview(homeTeamStackView)
         rootStackView.addArrangedSubview(homeTeamScoreLabel)
-        rootStackView.addArrangedSubview(currentPeriodLabel)
+        rootStackView.addArrangedSubview(gameStatusLabel)
         rootStackView.addArrangedSubview(visitorTeamScoreLabel)
         rootStackView.addArrangedSubview(visitorTeamStackView)
         
