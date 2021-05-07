@@ -1,5 +1,9 @@
 <h1 align="center"> NBATracker </h1>
 
+<p align="center">
+<img src="https://user-images.githubusercontent.com/43909779/117497566-a96d0d80-af46-11eb-98c9-ea40b04f3beb.png" width="25%" height="25%">
+</p>
+
 > Personal iOS project to display NBA infos on current teams, players and season with scoreboards of the day using data.nba.net and cdn.nba.net APIs.
 
 ## Table of Contents
