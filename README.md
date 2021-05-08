@@ -24,7 +24,7 @@
 <hr>
 
 ## Project Screenshots
-<img src="https://user-images.githubusercontent.com/43909779/117401180-14303180-aed2-11eb-8b01-dbb12a718c23.png" width="25%" height="25%">
+<img src="https://user-images.githubusercontent.com/43909779/117521955-9a09b680-af7e-11eb-8894-9b04c8def273.png" width="25%" height="25%">
 <hr>
 
 ## Technologies
