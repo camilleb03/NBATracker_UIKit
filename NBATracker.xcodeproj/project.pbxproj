@@ -14,6 +14,7 @@
 		910A927726430E0E00668D6B /* NBATodayService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910A927626430E0E00668D6B /* NBATodayService.swift */; };
 		910A927B264315A500668D6B /* today.json in Resources */ = {isa = PBXBuildFile; fileRef = 910A927A264315A500668D6B /* today.json */; };
 		910A927F264315CC00668D6B /* NBATodayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910A927E264315CC00668D6B /* NBATodayTests.swift */; };
+		9116D90C26489676001466DD /* StandingsSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9116D90B26489676001466DD /* StandingsSectionHeader.swift */; };
 		912C0C512640DB9A00986B07 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912C0C502640DB9A00986B07 /* AppDelegate.swift */; };
 		912C0C552640DB9A00986B07 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912C0C542640DB9A00986B07 /* BaseViewController.swift */; };
 		912C0C5A2640DB9E00986B07 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 912C0C592640DB9E00986B07 /* Assets.xcassets */; };
@@ -59,6 +60,7 @@
 		910A927626430E0E00668D6B /* NBATodayService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NBATodayService.swift; sourceTree = "<group>"; };
 		910A927A264315A500668D6B /* today.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = today.json; sourceTree = "<group>"; };
 		910A927E264315CC00668D6B /* NBATodayTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NBATodayTests.swift; sourceTree = "<group>"; };
+		9116D90B26489676001466DD /* StandingsSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandingsSectionHeader.swift; sourceTree = "<group>"; };
 		912C0C4D2640DB9A00986B07 /* NBATracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NBATracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		912C0C502640DB9A00986B07 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		912C0C542640DB9A00986B07 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 			children = (
 				912C0C5B2640DB9E00986B07 /* LaunchScreen.storyboard */,
 				919B70DE2641C5A900E8FDF9 /* LiveScoreTableViewCell.swift */,
+				9116D90B26489676001466DD /* StandingsSectionHeader.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -362,6 +365,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9116D90C26489676001466DD /* StandingsSectionHeader.swift in Sources */,
 				910A92632642FC5700668D6B /* Endpoint.swift in Sources */,
 				919B8EEF2640E4CE00FC466B /* TeamsService.swift in Sources */,
 				912C0C552640DB9A00986B07 /* BaseViewController.swift in Sources */,
