@@ -10,17 +10,21 @@ import UIKit
 
 class StandingsViewController: BaseViewController {
     
-    let cellIdentifier = "StandingsCellIdentifier"
-    let headerIdentifier = "StandingsHeaderIdentifier"
+    static let sectionHeaderElementKind = "section-header-element-kind"
+    
+    enum Section: CaseIterable {
+        case east, west
+    }
 
-    var collectionView: UICollectionView!
+    var collectionView: UICollectionView! = nil
+    var dataSource: UICollectionViewDiffableDataSource<Section, Standing>! = nil
+    let standingsService = StandingsService()
+    var conferenceStandings = ConferenceStandings()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        setupCollectionView()
-        style()
-        layout()
+        configureHierarchy()
+        configureDataSource()
     }
     
     override func commonInit() {
@@ -32,87 +36,100 @@ class StandingsViewController: BaseViewController {
 extension StandingsViewController {
     
     func style() {
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.backgroundColor = .clear
+        
     }
     
-    func layout() {
+    func layout() -> UICollectionViewLayout {
+        
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                              heightDimension: .fractionalHeight(1.0))
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                               heightDimension: .absolute(44))
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+        
+        let section = NSCollectionLayoutSection(group: group)
+        
+        let sectionHeader = NSCollectionLayoutBoundarySupplementaryItem(
+            layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                              heightDimension: .estimated(44)),
+            elementKind: StandingsViewController.sectionHeaderElementKind,
+            alignment: .top)
+        
+        sectionHeader.pinToVisibleBounds = true
+        sectionHeader.zIndex = 2
+        section.boundarySupplementaryItems = [sectionHeader]
+        
+        let layout = UICollectionViewCompositionalLayout(section: section)
+        
+        return layout
+    }
+    
+    private func configureHierarchy() {
+        collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: layout())
+        collectionView.backgroundColor = .systemBackground
+        collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        collectionView.register(StandingsCollectionViewCell.self, forCellWithReuseIdentifier: StandingsCollectionViewCell.reuseIdentifier)
+        collectionView.register(StandingsSectionHeader.self,
+                                forSupplementaryViewOfKind: StandingsViewController.sectionHeaderElementKind,
+                   withReuseIdentifier: StandingsSectionHeader.reuseIdentifier)
         view.addSubview(collectionView)
-        // Automatically activate constraints routine
-        NSLayoutConstraint.activate([
-            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-        ])
     }
     
-    private func setupCollectionView() {
+    private func configureDataSource() {
         
-        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-                layout.sectionInset = UIEdgeInsets(top: 20, left: 10, bottom: 10, right: 10)
-                layout.itemSize = CGSize(width: 60, height: 60)
-        
-        collectionView = UICollectionView(frame: view.frame, collectionViewLayout: layout)
-        
-        // Conform itself as the data source and the delegate
-        collectionView.dataSource = self
-        
-        // Delegate is for user interaction
-        collectionView.delegate = self
-        
-        // Register cells to use in TableView
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cellIdentifier)
-        collectionView.register(StandingsSectionHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerIdentifier)
-    }
-}
-
-// MARK: - Collection View Delegate
-extension StandingsViewController: UICollectionViewDelegate {
-}
-
-// MARK: - Data Source Delegate
-extension StandingsViewController: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 9
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath)
-        cell.backgroundColor = .blue
-        return cell
-    }
-    
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 2
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        
-        switch kind {
-        case UICollectionView.elementKindSectionHeader:
+        // Create Diffable Data Source and connect to Collection View
+        dataSource = UICollectionViewDiffableDataSource<Section, Standing>(collectionView: collectionView) {
+            (collectionView: UICollectionView, indexPath: IndexPath, identifier: Standing) -> UICollectionViewCell? in
             
-            let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerIdentifier, for: indexPath as IndexPath) as! StandingsSectionHeader
+            // A constructor that passes the collection view as input, and returns a cell as output
+            guard let cell = collectionView.dequeueReusableCell(
+                    withReuseIdentifier: StandingsCollectionViewCell.reuseIdentifier,
+                    for: indexPath) as? StandingsCollectionViewCell else { fatalError("Cannot create new cell") }
+            
+            cell.teamLabel.text = identifier.name
+            return cell
+        }
+        
+        dataSource.supplementaryViewProvider = { (
+            collectionView: UICollectionView,
+            kind: String,
+            indexPath: IndexPath) -> UICollectionReusableView? in
+            
+            // Get a supplementary view of the desired kind.
+            guard let supplementaryView = collectionView.dequeueReusableSupplementaryView(
+                    ofKind: kind,
+                    withReuseIdentifier: StandingsSectionHeader.reuseIdentifier,
+                    for: indexPath) as? StandingsSectionHeader else { fatalError("Cannot create new supplementary") }
             
             if indexPath.section == 0 {
-                headerView.label.text = "WEST"
-                
+                supplementaryView.confLabel.text = "WEST"
             }
             else {
-                headerView.label.text = "EAST"
+                supplementaryView.confLabel.text = "EAST"
             }
             
-            headerView.backgroundColor = UIColor.yellow;
-            return headerView
+            supplementaryView.backgroundColor = .lightGray
             
-        default:
-            assert(false, "Unexpected element kind")
+            // Return the view.
+            return supplementaryView
         }
+        
+        // Populate conference standings
+        fetch()
+        update(with: self.conferenceStandings)
     }
-}
-
-extension StandingsViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize(width: collectionView.frame.width, height: 30)
+    
+    private func fetch() {
+        self.conferenceStandings = standingsService.fetchConferenceStandings()
+    }
+    
+    func update(with list: ConferenceStandings, animate: Bool = true) {
+        var snapshot = NSDiffableDataSourceSnapshot<Section, Standing>()
+        snapshot.appendSections(Section.allCases)
+        snapshot.appendItems(list.east, toSection: .east)
+        snapshot.appendItems(list.west, toSection: .west)
+        dataSource.apply(snapshot, animatingDifferences: false)
     }
 }

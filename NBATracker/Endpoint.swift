@@ -50,9 +50,14 @@ extension Endpoint {
 }
 
 extension Endpoint {
+    
     static var today: Self {
         Endpoint(path: "today.json")
     }
+    
+    static var confStandings: Self {
+        Endpoint(path: "current/standings_conference.json")
+    }  
 
     static func scoreboard(for date: String) -> Self {
         Endpoint(path: "\(date)/scoreboard.json")
