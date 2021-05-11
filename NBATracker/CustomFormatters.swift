@@ -1,5 +1,5 @@
 //
-//  CustomDateFormatters.swift
+//  CustomFormatters.swift
 //  NBATracker
 //
 //  Created by Camille Bourbonnais on 2021-05-04.
@@ -81,5 +81,25 @@ class CustomDateFormatters {
     static func convertDateToyyyyString(for date: Date) -> String {
         return CustomDateFormatters.yyyyFormatter.string(from: date)
     }
+}
+
+class CustomNumberFormatters {
+
+    public static var decimalMaxThreeFractionDigitsFormatter: NumberFormatter {
+        return CustomNumberFormatters.decimalMaxThreeFractionDigits
+    }
     
+    private static let decimalMaxThreeFractionDigits: NumberFormatter = {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        formatter.decimalSeparator = "."
+        formatter.maximumFractionDigits = 3
+        formatter.minimumFractionDigits = 3
+        return formatter
+      }()
+    
+    static func convertDoubleToDecimalString(for double: Double) -> String {
+        let number = NSNumber(value: double)
+        return CustomNumberFormatters.decimalMaxThreeFractionDigitsFormatter.string(from: number)!
+    }
 }

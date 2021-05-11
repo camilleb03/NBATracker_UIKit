@@ -9,22 +9,23 @@ import Foundation
 import UIKit
 
 class StandingsViewController: BaseViewController {
-    
-    static let sectionHeaderElementKind = "section-header-element-kind"
-    
-    enum Section: CaseIterable {
-        case east, west
-    }
 
-    var collectionView: UICollectionView! = nil
-    var dataSource: UICollectionViewDiffableDataSource<Section, Standing>! = nil
+
+    var tableView = UITableView()
     let standingsService = StandingsService()
-    var conferenceStandings = ConferenceStandings()
+    
+    var conferenceStandings: ConferenceStandings? {
+        didSet {
+            conferenceStandings?.sortStandingsByWinPercentage()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureHierarchy()
-        configureDataSource()
+        fetch()
+        setupTableView()
+        style()
+        layout()
     }
     
     override func commonInit() {
@@ -36,100 +37,137 @@ class StandingsViewController: BaseViewController {
 extension StandingsViewController {
     
     func style() {
-        
+        tableView.translatesAutoresizingMaskIntoConstraints = false
     }
     
-    func layout() -> UICollectionViewLayout {
-        
-        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                              heightDimension: .fractionalHeight(1.0))
-        let item = NSCollectionLayoutItem(layoutSize: itemSize)
-        
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                               heightDimension: .absolute(44))
-        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
-        
-        let section = NSCollectionLayoutSection(group: group)
-        
-        let sectionHeader = NSCollectionLayoutBoundarySupplementaryItem(
-            layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                              heightDimension: .estimated(44)),
-            elementKind: StandingsViewController.sectionHeaderElementKind,
-            alignment: .top)
-        
-        sectionHeader.pinToVisibleBounds = true
-        sectionHeader.zIndex = 2
-        section.boundarySupplementaryItems = [sectionHeader]
-        
-        let layout = UICollectionViewCompositionalLayout(section: section)
-        
-        return layout
+    func layout() {
+        view.addSubview(tableView)
+        NSLayoutConstraint.activate([
+            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+        ])
     }
     
-    private func configureHierarchy() {
-        collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: layout())
-        collectionView.backgroundColor = .systemBackground
-        collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        collectionView.register(StandingsCollectionViewCell.self, forCellWithReuseIdentifier: StandingsCollectionViewCell.reuseIdentifier)
-        collectionView.register(StandingsSectionHeader.self,
-                                forSupplementaryViewOfKind: StandingsViewController.sectionHeaderElementKind,
-                   withReuseIdentifier: StandingsSectionHeader.reuseIdentifier)
-        view.addSubview(collectionView)
+    private func setupTableView() {
+        // Conform itself as the data source and the delegate
+        tableView.dataSource = self
+        
+        // Delegate is for user interaction
+        tableView.delegate = self
+        
+        // Register header to use in TableView
+        tableView.register(StandingsHeaderView.self, forHeaderFooterViewReuseIdentifier: StandingsHeaderView.reuseIdentifier)
+        
+        // Register cells to use in TableView
+        tableView.register(StandingsTableViewCell.self, forCellReuseIdentifier: StandingsTableViewCell.reuseIdentifier)
     }
     
-    private func configureDataSource() {
-        
-        // Create Diffable Data Source and connect to Collection View
-        dataSource = UICollectionViewDiffableDataSource<Section, Standing>(collectionView: collectionView) {
-            (collectionView: UICollectionView, indexPath: IndexPath, identifier: Standing) -> UICollectionViewCell? in
+    
+    private func fetch() {
+        standingsService.fetchConferenceStandings(completion: { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let confStandings):
+                self.conferenceStandings = confStandings
+                self.tableView.reloadData()
+            case .failure(let error):
+                self.showAlert(message: error.localizedDescription)
+            }
             
-            // A constructor that passes the collection view as input, and returns a cell as output
-            guard let cell = collectionView.dequeueReusableCell(
-                    withReuseIdentifier: StandingsCollectionViewCell.reuseIdentifier,
-                    for: indexPath) as? StandingsCollectionViewCell else { fatalError("Cannot create new cell") }
+        })
+    }
+    
+    private func showAlert(message: String) {
+        let alertController = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alertController.addAction(okAction)
+        present(alertController, animated: true, completion: nil)
+    }
+}
+
+// MARK: - Table view data source
+extension StandingsViewController: UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        if let conferenceStandings = self.conferenceStandings {
+            switch section {
+            // Eastern
+            case 0:
+                return conferenceStandings.eastStandings.count
+            // Western
+            case 1:
+                return conferenceStandings.westStandings.count
+            default:
+                fatalError()
+            }
+        }
+        return 15
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        if let conferenceStandings = self.conferenceStandings {
+            let cell = tableView.dequeueReusableCell(withIdentifier: StandingsTableViewCell.reuseIdentifier, for: indexPath)  as! StandingsTableViewCell
             
-            cell.teamLabel.text = identifier.name
+            let standing: Standing
+            switch indexPath.section {
+            // Eastern
+            case 0:
+                standing = conferenceStandings.eastStandings[indexPath.row]
+            // Western
+            case 1:
+                standing = conferenceStandings.westStandings[indexPath.row]
+            default:
+                fatalError()
+            }
+            // Configure the cell with the data
+            cell.posString = String(indexPath.row + 1)
+            cell.standing = standing
             return cell
         }
         
-        dataSource.supplementaryViewProvider = { (
-            collectionView: UICollectionView,
-            kind: String,
-            indexPath: IndexPath) -> UICollectionReusableView? in
-            
-            // Get a supplementary view of the desired kind.
-            guard let supplementaryView = collectionView.dequeueReusableSupplementaryView(
-                    ofKind: kind,
-                    withReuseIdentifier: StandingsSectionHeader.reuseIdentifier,
-                    for: indexPath) as? StandingsSectionHeader else { fatalError("Cannot create new supplementary") }
-            
-            if indexPath.section == 0 {
-                supplementaryView.confLabel.text = "WEST"
-            }
-            else {
-                supplementaryView.confLabel.text = "EAST"
-            }
-            
-            supplementaryView.backgroundColor = .lightGray
-            
-            // Return the view.
-            return supplementaryView
+        // Return cell
+        return UITableViewCell()
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        let headerView = self.tableView.dequeueReusableHeaderFooterView(withIdentifier: StandingsHeaderView.reuseIdentifier ) as! StandingsHeaderView
+        
+        switch section {
+        // Eastern
+        case 0:
+            headerView.confLabel.text = "EASTERN CONFERENCE"
+        // Western
+        case 1:
+            headerView.confLabel.text = "WESTERN CONFERENCE"
+        default:
+            fatalError()
         }
         
-        // Populate conference standings
-        fetch()
-        update(with: self.conferenceStandings)
-    }
-    
-    private func fetch() {
-        self.conferenceStandings = standingsService.fetchConferenceStandings()
-    }
-    
-    func update(with list: ConferenceStandings, animate: Bool = true) {
-        var snapshot = NSDiffableDataSourceSnapshot<Section, Standing>()
-        snapshot.appendSections(Section.allCases)
-        snapshot.appendItems(list.east, toSection: .east)
-        snapshot.appendItems(list.west, toSection: .west)
-        dataSource.apply(snapshot, animatingDifferences: false)
+        return headerView
     }
 }
+
+extension StandingsViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 30
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+
+    func tableView(_ tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat {
+        return 30
+    }
+}
+
