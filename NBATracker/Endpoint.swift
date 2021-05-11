@@ -7,7 +7,7 @@
 
 import Foundation
 
-// TODO: Refactor to have seperate URL access for nba and logo
+// TODO: - Refactor to have seperate URL access for nba and logo
 struct Endpoint {
     var path: String
     var queryItems: [URLQueryItem] = []

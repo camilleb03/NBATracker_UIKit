@@ -99,7 +99,7 @@ extension LiveScoresViewController {
     }
     
     @objc private func refreshTableViewData(_ sender: Any) {
-        // FIXME: Weird flashing data while refreshing/reloading data
+        // FIXME: - Weird flashing data while refreshing/reloading data
         self.refreshControl.endRefreshing()
         fetchLiveScoreBoards()
     }
