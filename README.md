@@ -12,6 +12,8 @@
 3. [Technologies](#technologies)
 4. [Features](#features)
 5. [TODOs](#todo-list)
+6. [References](#references)
+7. [Disclaimer](#disclaimer)
 
 <hr>
 
@@ -65,11 +67,18 @@ List of features coming :
   - Retrieve info from API
   - Make UI
 - Standings
-  - Retrieve info from API
-  - Make UI
+  - Retrieve info from API &#9745;
+  - Make UI &#9745;
+  - Improve UI
 
 <hr>
 
-## License
+## References
 
-* Basketball image of app logo designed by BSGStudio (taken from https://all-free-download.com/)
+* Basketball image of app icon designed by BSGStudio (taken from https://all-free-download.com/)
+* NBA team logos taken from the publicly accessible API cdn.nba.net
+
+## Disclaimer
+* This project is not affiliated, associated, endorsed by, or in any way officially connected with the NBA.
+* All names and logos used are registered trademarks of their respective owners.
+* This application is released under MIT (see [LICENSE](LICENSE)).
