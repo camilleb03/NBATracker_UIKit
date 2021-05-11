@@ -53,7 +53,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let tabBarController = UITabBarController()
         tabBarController.viewControllers = [standingsNC, liveScoresNC, teamsTableNC]
         // Select livescore TabBarItem on launch
-        tabBarController.selectedIndex = 1
+        tabBarController.selectedIndex = 0
         
         // Specify which ViewController to launch at the start of the app
         window?.rootViewController = tabBarController

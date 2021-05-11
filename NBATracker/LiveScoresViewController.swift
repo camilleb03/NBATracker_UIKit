@@ -77,13 +77,8 @@ extension LiveScoresViewController {
     private func setDateCode() {
         dateCode = NBATodayService.nbaToday?.currentDateUrlCode ?? CustomDateFormatters.convertDateToyyyyMMddString(for: Date())
     }
-
-}
-
-// MARK: - Table view data source
-extension LiveScoresViewController: UITableViewDataSource {
     
-    func setupTableView() {
+    private func setupTableView() {
         // Conform itself as the data source and the delegate
         tableView.dataSource = self
         
@@ -104,10 +99,15 @@ extension LiveScoresViewController: UITableViewDataSource {
     }
     
     @objc private func refreshTableViewData(_ sender: Any) {
-        // FIXME: Weird flashing data while refreshing/reloading data
+        // FIXME: - Weird flashing data while refreshing/reloading data
         self.refreshControl.endRefreshing()
         fetchLiveScoreBoards()
     }
+
+}
+
+// MARK: - Table view data source
+extension LiveScoresViewController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
