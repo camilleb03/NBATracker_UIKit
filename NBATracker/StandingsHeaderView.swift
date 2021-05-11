@@ -86,7 +86,6 @@ extension StandingsHeaderView {
 
     private func configure() {
         
-        // FIXME: - Landscape mode -> header is not full width
         generateStatsSubViews()
         columnsStackView.addArrangedSubview(posLabel)
         columnsStackView.addArrangedSubview(teamLabel)
@@ -99,7 +98,8 @@ extension StandingsHeaderView {
         rootHeaderStackView.addArrangedSubview(separator)
         
         rootHeaderStackView.addArrangedSubview(columnsStackView)
-        contentView.backgroundColor = UIColor(red: 0.94, green: 0.35, blue: 0.10, alpha: 1.00)
+        // FIXME: - In landscape mode, header is not full width so color is not displayed properly
+        // contentView.backgroundColor = UIColor(red: 0.94, green: 0.35, blue: 0.10, alpha: 1.00)
         contentView.addSubview(rootHeaderStackView)
         
         NSLayoutConstraint.activate([
