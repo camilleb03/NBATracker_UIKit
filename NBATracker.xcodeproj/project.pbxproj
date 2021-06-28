@@ -144,10 +144,10 @@
 				912C0C502640DB9A00986B07 /* AppDelegate.swift */,
 				919B8EED2640E04D00FC466B /* Extensions */,
 				919091A026444229001EA3E1 /* Helpers */,
+				919B8EE92640E00E00FC466B /* Services */,
 				919B8EEC2640E03700FC466B /* Models */,
 				919B8EEA2640E02600FC466B /* Views */,
 				919B8EEB2640E03000FC466B /* Controllers */,
-				919B8EE92640E00E00FC466B /* Services */,
 				919B8EF52640E78B00FC466B /* Resources */,
 				912C0C592640DB9E00986B07 /* Assets.xcassets */,
 				912C0C5E2640DB9E00986B07 /* Info.plist */,
@@ -572,7 +572,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.camillebourbonnais.NBATracker;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.camillebourbonnais.NBATracker-UIKit";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -591,7 +591,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.camillebourbonnais.NBATracker;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.camillebourbonnais.NBATracker-UIKit";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
