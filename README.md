@@ -19,20 +19,20 @@
 
 ## General Info
 
-* iOS Deployment Target :
-
-**PROJECT STATUS: IN DEVELOPMENT**
+* iOS Deployment Target : 14.4
 
 <hr>
 
 ## Project Screenshots
 <img src="https://user-images.githubusercontent.com/43909779/117521955-9a09b680-af7e-11eb-8894-9b04c8def273.png" width="25%" height="25%">
+
 <hr>
 
 ## Technologies
 A list of technologies used within the project:
 * Xcode 12.4
 * Swift 5
+* UIKit
 * data.nba.net API
 * cdn.nba.net API
 
@@ -43,6 +43,7 @@ A list of technologies used within the project:
 A few of the things you can do with NBATracker:
 
 * View live scoreboards of the current games
+* View the league standings by conference
 
 <hr>
 
@@ -55,7 +56,6 @@ List of features coming :
   - Refresh swipe (drag down view) refreshes scores &#9745;
   - Improve UI of scoreboard &#9745;
   - Add team logos (with caching) &#9745;
-  - Select row (game) leads to detailed view of the game
 - Standings
   - Retrieve info from API &#9745;
   - Make UI &#9745;
